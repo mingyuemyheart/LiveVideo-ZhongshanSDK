@@ -58,7 +58,7 @@ public class ShawnUploadedAdapter extends BaseAdapter implements StickyGridHeade
 		HeaderViewHolder mHeaderHolder;
 		if (convertView == null) {
 			mHeaderHolder = new HeaderViewHolder();
-			convertView = mInflater.inflate(R.layout.shawn_adapter_uploaded_header, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adapter_uploaded_header, null);
 			mHeaderHolder.tvDate = convertView.findViewById(R.id.tvDate);
 			mHeaderHolder.tvPosition = convertView.findViewById(R.id.tvPosition);
 			convertView.setTag(mHeaderHolder);
@@ -103,7 +103,7 @@ public class ShawnUploadedAdapter extends BaseAdapter implements StickyGridHeade
 		ViewHolder mHolder;
 		if (convertView == null) {
 			mHolder = new ViewHolder();
-			convertView = mInflater.inflate(R.layout.shawn_adapter_uploaded_content, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adapter_uploaded_content, null);
 			mHolder.imageView = convertView.findViewById(R.id.imageView);
 			mHolder.ivVideo = convertView.findViewById(R.id.ivVideo);
 			convertView.setTag(mHolder);

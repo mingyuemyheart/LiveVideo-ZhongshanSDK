@@ -33,7 +33,7 @@ import okhttp3.Response;
  * 修改用户信息
  * @author shawn_sun
  */
-public class ShawnModifyInfoActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpModifyInfoActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
 	private EditText etContent;
@@ -43,7 +43,7 @@ public class ShawnModifyInfoActivity extends ShawnBaseActivity implements OnClic
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_modify_info);
+		setContentView(R.layout.fyjp_activity_modify_info);
 		mContext = this;
 		initWidget();
 	}

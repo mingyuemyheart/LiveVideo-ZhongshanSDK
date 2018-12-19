@@ -55,7 +55,7 @@ import cn.com.weather.listener.AsyncResponseHandler;
 /**
  * 主界面
  */
-public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocationListener, OnClickListener{
+public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationListener, OnClickListener{
 	
 	private Context mContext;
 	private TextView tvAddress,tvTime,tvPhenomenon,tvFactTemp,tvBodyTemp,tvWind,tvHumitidy,tvRainFall,tvAQI;
@@ -69,8 +69,8 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_main);
-		MyApplication.addDestoryActivity(this, "ShawnMainActivity");
+		setContentView(R.layout.fyjp_activity_main);
+		MyApplication.addDestoryActivity(this, "FyjpMainActivity");
 		mContext = this;
 		initWidget();
 	}
@@ -245,7 +245,7 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 	 */
 	private void dialogCamera() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		final View view = inflater.inflate(R.layout.shawn_dialog_camera, null);
+		final View view = inflater.inflate(R.layout.fyjp_dialog_camera, null);
 		RelativeLayout reCamera = view.findViewById(R.id.reCamera);
 		RelativeLayout reSelect = view.findViewById(R.id.reSelect);
 		RelativeLayout rePicture = view.findViewById(R.id.rePicture);
@@ -265,7 +265,7 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 			@Override
 			public void onClick(View arg0) {
 				if (MyApplication.TOKEN != null) {
-					startActivity(new Intent(mContext, ShawnCameraActivity.class));
+					startActivity(new Intent(mContext, FyjpCameraActivity.class));
 				}
 				dialog.dismiss();
 			}
@@ -325,11 +325,11 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 			dialogCamera();
 
 		} else if (i == R.id.reVideo) {
-			startActivity(new Intent(mContext, ShawnVideoWallActivity.class));//视频墙
+			startActivity(new Intent(mContext, FyjpVideoWallActivity.class));//视频墙
 
 		} else if (i == R.id.reMeet) {
 			if (flag == 1) {
-				startActivity(new Intent(mContext, ShawnPersonCenterActivity.class));
+				startActivity(new Intent(mContext, FyjpPersonCenterActivity.class));
 			}
 
 		} else {
@@ -343,7 +343,7 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
 			case 0:
-				startActivity(new Intent(mContext, ShawnCameraActivity.class));
+				startActivity(new Intent(mContext, FyjpCameraActivity.class));
 				break;
 			case 1:
 				if (data != null) {
@@ -359,7 +359,7 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 					dto.setLocation(getString(R.string.no_location));
 					dto.setWorkTime(sdf2.format(System.currentTimeMillis()));
 					dto.setVideoUrl(filePath);
-					Intent intent = new Intent(mContext, ShawnDisplayVideoActivity.class);
+					Intent intent = new Intent(mContext, FyjpDisplayVideoActivity.class);
 					Bundle bundle = new Bundle();
 					bundle.putParcelable("data", dto);
 					intent.putExtras(bundle);
@@ -390,7 +390,7 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 					dto.setWorkstype("imgs");
 				    dto.imgUrl = filePath;
 				    selectList.add(dto);
-					Intent intent = new Intent(mContext, ShawnDisplayPictureActivity.class);
+					Intent intent = new Intent(mContext, FyjpDisplayPictureActivity.class);
 				    intent.putExtra("cityName", getString(R.string.no_location));
 				    intent.putExtra("takeTime", sdf2.format(System.currentTimeMillis()));
 					Bundle bundle = new Bundle();

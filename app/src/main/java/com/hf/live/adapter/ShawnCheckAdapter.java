@@ -75,7 +75,7 @@ public class ShawnCheckAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder mHolder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.shawn_adpater_check, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adpater_check, null);
 			mHolder = new ViewHolder();
 			mHolder.imageView = convertView.findViewById(R.id.imageView);
 			mHolder.ivVideo = convertView.findViewById(R.id.ivVideo);

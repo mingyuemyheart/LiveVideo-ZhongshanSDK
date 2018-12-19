@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/reTitle"
-        layout="@layout/shawn_layout_title" />
+        layout="@layout/fyjp_layout_title" />
 
     <LinearLayout
         android:layout_width="match_parent"

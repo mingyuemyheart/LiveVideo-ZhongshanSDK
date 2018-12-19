@@ -24,8 +24,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.hf.live.activity.ShawnDisplayPictureActivity;
-import com.hf.live.activity.ShawnDisplayVideoActivity;
+import com.hf.live.activity.FyjpDisplayPictureActivity;
+import com.hf.live.activity.FyjpDisplayVideoActivity;
 import com.hf.live.R;
 import com.hf.live.adapter.ShawnLocalAdapter;
 import com.hf.live.common.CONST;
@@ -49,7 +49,7 @@ public class ShawnLocalFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.shawn_fragment_local, null);
+		View view = inflater.inflate(R.layout.fyjp_fragment_local, null);
 		return view;
 	}
 	
@@ -190,7 +190,7 @@ public class ShawnLocalFragment extends Fragment {
 							selectList.add(localList.get(i));//把所有数据加载到照片墙list里
 						}
 					}
-				    intent = new Intent(getActivity(), ShawnDisplayPictureActivity.class);
+				    intent = new Intent(getActivity(), FyjpDisplayPictureActivity.class);
 				    intent.putExtra("cityName", "未知位置");
 				    intent.putExtra("takeTime", sdf3.format(System.currentTimeMillis()));
 					Bundle bundle = new Bundle();
@@ -198,7 +198,7 @@ public class ShawnLocalFragment extends Fragment {
 				    intent.putExtras(bundle);
 					startActivity(intent);
 				}else {
-					intent = new Intent(getActivity(), ShawnDisplayVideoActivity.class);
+					intent = new Intent(getActivity(), FyjpDisplayVideoActivity.class);
 					Bundle bundle = new Bundle();
 					bundle.putParcelable("data", dto);
 					intent.putExtras(bundle);

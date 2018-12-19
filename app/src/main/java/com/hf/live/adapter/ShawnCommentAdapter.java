@@ -54,7 +54,7 @@ public class ShawnCommentAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder mHolder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.shawn_adapter_comment, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adapter_comment, null);
 			mHolder = new ViewHolder();
 			mHolder.ivPortrait = convertView.findViewById(R.id.ivPortrait);
 			mHolder.tvUserName = convertView.findViewById(R.id.tvUserName);

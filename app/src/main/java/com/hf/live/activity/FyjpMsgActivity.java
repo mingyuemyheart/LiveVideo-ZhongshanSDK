@@ -41,7 +41,7 @@ import okhttp3.Response;
 /**
  * 我的消息
  */
-public class ShawnMsgActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpMsgActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
 	private ShawnMsgAdapter mAdapter;
@@ -51,7 +51,7 @@ public class ShawnMsgActivity extends ShawnBaseActivity implements OnClickListen
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_msg);
+		setContentView(R.layout.fyjp_activity_msg);
 		mContext = this;
 		showDialog();
 		initWidget();
@@ -83,9 +83,9 @@ public class ShawnMsgActivity extends ShawnBaseActivity implements OnClickListen
 				PhotoDto dto = dataList.get(arg2);
 				Intent intent = new Intent();
 				if (dto.getWorkstype().equals("imgs")) {
-					intent.setClass(mContext, ShawnOnlinePictureActivity.class);
+					intent.setClass(mContext, FyjpOnlinePictureActivity.class);
 				}else {
-					intent.setClass(mContext, ShawnOnlineVideoActivity.class);
+					intent.setClass(mContext, FyjpOnlineVideoActivity.class);
 				}
 				Bundle bundle = new Bundle();
 				bundle.putParcelable("data", dto);

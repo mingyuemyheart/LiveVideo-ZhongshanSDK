@@ -54,7 +54,7 @@ public class ShawnVideoWallAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder mHolder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.shawn_adapter_video_wall, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adapter_video_wall, null);
 			mHolder = new ViewHolder();
 			mHolder.imageView = convertView.findViewById(R.id.imageView);
 			mHolder.ivVideo = convertView.findViewById(R.id.ivVideo);

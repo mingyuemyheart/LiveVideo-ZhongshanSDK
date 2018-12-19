@@ -60,7 +60,7 @@ public class ShawnMsgAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder mHolder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.shawn_adapter_msg, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adapter_msg, null);
 			mHolder = new ViewHolder();
 			mHolder.ivPortrait = convertView.findViewById(R.id.ivPortrait);
 			mHolder.imageView = convertView.findViewById(R.id.imageView);

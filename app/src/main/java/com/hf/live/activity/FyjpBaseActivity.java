@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.hf.live.view.MyDialog;
 
-public class ShawnBaseActivity extends Activity {
+public class FyjpBaseActivity extends Activity {
 
 	private Context mContext;
 	private MyDialog mDialog;

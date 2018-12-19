@@ -17,12 +17,12 @@ import com.hf.live.R;
 /**
  * 免责申明
  */
-public class ShawnResponseActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpResponseActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_response);
+		setContentView(R.layout.fyjp_activity_response);
 		initWidget();
 		initWebView();
 	}

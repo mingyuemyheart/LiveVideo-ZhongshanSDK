@@ -74,7 +74,7 @@ import okhttp3.Response;
 /**
  * 在线视频
  */
-public class ShawnOnlineVideoActivity extends Activity implements SurfaceHolder.Callback, OnPreparedListener, OnVideoSizeChangedListener, OnCompletionListener, OnClickListener{
+public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.Callback, OnPreparedListener, OnVideoSizeChangedListener, OnCompletionListener, OnClickListener{
 	
 	private Context mContext = null;
 	private SurfaceView surfaceView = null;
@@ -111,7 +111,7 @@ public class ShawnOnlineVideoActivity extends Activity implements SurfaceHolder.
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_online_video);
+		setContentView(R.layout.fyjp_activity_online_video);
 		mContext = this;
 		initWidget();
 		initListView();

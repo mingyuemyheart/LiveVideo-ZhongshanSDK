@@ -48,7 +48,7 @@ import okhttp3.Response;
 /**
  * 个人信息
  */
-public class ShawnPersonInfoActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
 	private CircleImageView ivPortrait;
@@ -57,7 +57,7 @@ public class ShawnPersonInfoActivity extends ShawnBaseActivity implements OnClic
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_person_info);
+		setContentView(R.layout.fyjp_activity_person_info);
 		mContext = this;
 		initWidget();
 	}
@@ -175,21 +175,21 @@ public class ShawnPersonInfoActivity extends ShawnBaseActivity implements OnClic
 			checkAuthority();
 
 		} else if (i == R.id.llNickName) {
-			Intent intent = new Intent(mContext, ShawnModifyInfoActivity.class);
+			Intent intent = new Intent(mContext, FyjpModifyInfoActivity.class);
 			intent.putExtra("title", "昵称");
 			intent.putExtra("content", MyApplication.NICKNAME);
 			startActivityForResult(intent, 1);
 
 		} else if (i == R.id.llMail) {
 			Intent intent;
-			intent = new Intent(mContext, ShawnModifyInfoActivity.class);
+			intent = new Intent(mContext, FyjpModifyInfoActivity.class);
 			intent.putExtra("title", "邮箱");
 			intent.putExtra("content", MyApplication.MAIL);
 			startActivityForResult(intent, 2);
 
 		} else if (i == R.id.llUnit) {
 			Intent intent;
-			intent = new Intent(mContext, ShawnModifyInfoActivity.class);
+			intent = new Intent(mContext, FyjpModifyInfoActivity.class);
 			intent.putExtra("title", "单位名称");
 			intent.putExtra("content", MyApplication.UNIT);
 			startActivityForResult(intent, 3);

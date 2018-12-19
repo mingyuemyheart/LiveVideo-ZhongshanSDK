@@ -57,7 +57,7 @@ import java.util.Locale;
 /**
  * 图片预览并上传
  */
-public class ShawnDisplayPictureActivity extends ShawnBaseActivity implements OnClickListener, AMapLocationListener{
+public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnClickListener, AMapLocationListener{
 	
 	private Context mContext = null;
 	public TextView tvTitle = null;
@@ -82,7 +82,7 @@ public class ShawnDisplayPictureActivity extends ShawnBaseActivity implements On
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_display_picture);
+		setContentView(R.layout.fyjp_activity_display_picture);
 		mContext = this;
 		init();
 	}
@@ -307,7 +307,7 @@ public class ShawnDisplayPictureActivity extends ShawnBaseActivity implements On
 	 */
 	private void deleteDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_delete, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_delete, null);
 		TextView tvMessage = (TextView) view.findViewById(R.id.tvMessage);
 		LinearLayout llNegative = (LinearLayout) view.findViewById(R.id.llNegative);
 		LinearLayout llPositive = (LinearLayout) view.findViewById(R.id.llPositive);
@@ -372,7 +372,7 @@ public class ShawnDisplayPictureActivity extends ShawnBaseActivity implements On
 	 */
 	private void dialogTitle() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_upload, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_upload, null);
 		LinearLayout llPositive = view.findViewById(R.id.llPositive);
 		
 		final Dialog dialog = new Dialog(mContext, R.style.CustomProgressDialog);
@@ -392,7 +392,7 @@ public class ShawnDisplayPictureActivity extends ShawnBaseActivity implements On
 	 */
 	private void dialogUpload() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_delete, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_delete, null);
 		TextView tvMessage = view.findViewById(R.id.tvMessage);
 		LinearLayout llNegative = view.findViewById(R.id.llNegative);
 		LinearLayout llPositive = view.findViewById(R.id.llPositive);
@@ -522,7 +522,7 @@ public class ShawnDisplayPictureActivity extends ShawnBaseActivity implements On
 	
 	private void exitDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_delete, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_delete, null);
 		TextView tvMessage = view.findViewById(R.id.tvMessage);
 		LinearLayout llNegative = view.findViewById(R.id.llNegative);
 		LinearLayout llPositive = view.findViewById(R.id.llPositive);

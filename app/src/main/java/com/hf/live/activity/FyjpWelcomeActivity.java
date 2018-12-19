@@ -3,9 +3,6 @@ package com.hf.live.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -14,15 +11,11 @@ import android.widget.Toast;
 import com.hf.live.R;
 import com.hf.live.common.CONST;
 import com.hf.live.common.MyApplication;
-import com.hf.live.util.CommonUtil;
 import com.hf.live.util.OkHttpUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -35,14 +28,14 @@ import okhttp3.Response;
 /**
  * 欢迎界面
  */
-public class ShawnWelcomeActivity extends Activity{
+public class FyjpWelcomeActivity extends Activity{
 	
 	private Context mContext;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_welcome);
+		setContentView(R.layout.fyjp_activity_welcome);
 		mContext = this;
 
 		//获取用户信息
@@ -164,7 +157,7 @@ public class ShawnWelcomeActivity extends Activity{
 
 													MyApplication.saveUserInfo(mContext);
 													MyApplication.getUserInfo(mContext);
-													startActivity(new Intent(mContext, ShawnMainActivity.class));
+													startActivity(new Intent(mContext, FyjpMainActivity.class));
 													finish();
 												}
 											}else if (status == 202) {//登录失败就注册
@@ -255,7 +248,7 @@ public class ShawnWelcomeActivity extends Activity{
 //													}
 //
 //													MyApplication.saveUserInfo(mContext);
-//													startActivity(new Intent(mContext, ShawnMainActivity.class));
+//													startActivity(new Intent(mContext, FyjpMainActivity.class));
 //													finish();
 //
 //												}

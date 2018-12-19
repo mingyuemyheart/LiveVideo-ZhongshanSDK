@@ -17,8 +17,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.activity.ShawnOnlinePictureActivity;
-import com.hf.live.activity.ShawnOnlineVideoActivity;
+import com.hf.live.activity.FyjpOnlinePictureActivity;
+import com.hf.live.activity.FyjpOnlineVideoActivity;
 import com.hf.live.adapter.ShawnUploadedAdapter;
 import com.hf.live.common.CONST;
 import com.hf.live.common.MyApplication;
@@ -63,7 +63,7 @@ public class ShawnUploadedFragment extends Fragment{
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.shawn_fragment_uploaded, null);
+		View view = inflater.inflate(R.layout.fyjp_fragment_uploaded, null);
 		return view;
 	}
 	
@@ -130,9 +130,9 @@ public class ShawnUploadedFragment extends Fragment{
 				PhotoDto dto = dataList.get(arg2);
 				Intent intent = new Intent();
 				if (dto.getWorkstype().equals("imgs")) {
-					intent.setClass(getActivity(), ShawnOnlinePictureActivity.class);
+					intent.setClass(getActivity(), FyjpOnlinePictureActivity.class);
 				}else {
-					intent.setClass(getActivity(), ShawnOnlineVideoActivity.class);
+					intent.setClass(getActivity(), FyjpOnlineVideoActivity.class);
 				}
 				Bundle bundle = new Bundle();
 				bundle.putParcelable("data", dto);

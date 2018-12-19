@@ -19,7 +19,7 @@ import java.io.File;
 /**
  * 设置
  */
-public class ShawnSettingActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpSettingActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
 	private TextView tvLocalSave,tvLocalCache;
@@ -27,7 +27,7 @@ public class ShawnSettingActivity extends ShawnBaseActivity implements OnClickLi
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_setting);
+		setContentView(R.layout.fyjp_activity_setting);
 		mContext = this;
 		initWidget();
 	}
@@ -66,7 +66,7 @@ public class ShawnSettingActivity extends ShawnBaseActivity implements OnClickLi
 	 */
 	private void dialogDelete(String message, String content, final int flag) {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_delete, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_delete, null);
 		TextView tvMessage = view.findViewById(R.id.tvMessage);
 		TextView tvContent = view.findViewById(R.id.tvContent);
 		LinearLayout llNegative = view.findViewById(R.id.llNegative);
@@ -115,7 +115,7 @@ public class ShawnSettingActivity extends ShawnBaseActivity implements OnClickLi
 	 */
 	private void dialogLogout(String message) {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_delete, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_delete, null);
 		TextView tvMessage = view.findViewById(R.id.tvMessage);
 		LinearLayout llNegative = view.findViewById(R.id.llNegative);
 		LinearLayout llPositive = view.findViewById(R.id.llPositive);
@@ -150,8 +150,8 @@ public class ShawnSettingActivity extends ShawnBaseActivity implements OnClickLi
 					file.delete();
 				}
 
-//				MyApplication.destoryActivity("ShawnMainActivity");
-//				MyApplication.destoryActivity("ShawnPersonCenterActivity");
+//				MyApplication.destoryActivity("FyjpMainActivity");
+//				MyApplication.destoryActivity("FyjpPersonCenterActivity");
 //				startActivity(new Intent(mContext, LoginActivity.class));
 //				finish();
 			}

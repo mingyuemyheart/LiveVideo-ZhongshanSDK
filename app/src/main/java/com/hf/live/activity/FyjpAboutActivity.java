@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * 关于
  */
-public class ShawnAboutActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpAboutActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
 	private TextView tvAddress;//网址
@@ -39,7 +39,7 @@ public class ShawnAboutActivity extends ShawnBaseActivity implements OnClickList
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_about);
+		setContentView(R.layout.fyjp_activity_about);
 		mContext = this;
 		initWidget();
 	}
@@ -80,7 +80,7 @@ public class ShawnAboutActivity extends ShawnBaseActivity implements OnClickList
 	 */
 	private void dialogCall() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_delete, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_delete, null);
 		TextView tvMessage = view.findViewById(R.id.tvMessage);
 		TextView tvContent = view.findViewById(R.id.tvContent);
 		LinearLayout llNegative = view.findViewById(R.id.llNegative);
@@ -119,7 +119,7 @@ public class ShawnAboutActivity extends ShawnBaseActivity implements OnClickList
 			finish();
 
 		} else if (i == R.id.tvAddress) {
-			Intent intent = new Intent(mContext, ShawnResponseActivity.class);
+			Intent intent = new Intent(mContext, FyjpResponseActivity.class);
 			intent.putExtra("activityName", getString(R.string.app_name));
 			intent.putExtra("dataUrl", tvAddress.getText().toString());
 			startActivity(intent);

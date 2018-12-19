@@ -61,7 +61,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 /**
  * 在线预览图片
  */
-public class ShawnOnlinePictureActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext = null;
 	private GridView mGridView = null;
@@ -84,7 +84,7 @@ public class ShawnOnlinePictureActivity extends ShawnBaseActivity implements OnC
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_online_picture);
+		setContentView(R.layout.fyjp_activity_online_picture);
 		mContext = this;
 		initWidget();
 		initGridView();

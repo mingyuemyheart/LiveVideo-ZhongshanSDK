@@ -33,7 +33,7 @@ import okhttp3.Response;
 /**
  * 个人中心
  */
-public class ShawnPersonCenterActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpPersonCenterActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
 	private CircleImageView ivPortrait;//头像
@@ -44,8 +44,8 @@ public class ShawnPersonCenterActivity extends ShawnBaseActivity implements OnCl
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_person_center);
-		MyApplication.addDestoryActivity(ShawnPersonCenterActivity.this, "ShawnPersonCenterActivity");
+		setContentView(R.layout.fyjp_activity_person_center);
+		MyApplication.addDestoryActivity(FyjpPersonCenterActivity.this, "FyjpPersonCenterActivity");
 		mContext = this;
 		initWidget();
 	}
@@ -169,25 +169,25 @@ public class ShawnPersonCenterActivity extends ShawnBaseActivity implements OnCl
 			finish();
 
 		} else if (i == R.id.ivPortrait) {
-			startActivityForResult(new Intent(mContext, ShawnPersonInfoActivity.class), 0);
+			startActivityForResult(new Intent(mContext, FyjpPersonInfoActivity.class), 0);
 
 		} else if (i == R.id.llMyVideo) {
-			startActivity(new Intent(mContext, ShawnUploadedActivity.class));
+			startActivity(new Intent(mContext, FyjpUploadedActivity.class));
 
 		} else if (i == R.id.llMyMsg) {
-			startActivityForResult(new Intent(mContext, ShawnMsgActivity.class), 1);
+			startActivityForResult(new Intent(mContext, FyjpMsgActivity.class), 1);
 
 		} else if (i == R.id.llCheck) {
-			startActivity(new Intent(mContext, ShawnCheckActivity.class));
+			startActivity(new Intent(mContext, FyjpCheckActivity.class));
 
 		} else if (i == R.id.llMySetting) {
-			startActivity(new Intent(mContext, ShawnSettingActivity.class));
+			startActivity(new Intent(mContext, FyjpSettingActivity.class));
 
 		} else if (i == R.id.llMyAbout) {
-			startActivity(new Intent(mContext, ShawnAboutActivity.class));
+			startActivity(new Intent(mContext, FyjpAboutActivity.class));
 
 		} else if (i == R.id.llResponse) {
-			Intent intent = new Intent(mContext, ShawnResponseActivity.class);
+			Intent intent = new Intent(mContext, FyjpResponseActivity.class);
 			intent.putExtra("activityName", "免责声明");
 			intent.putExtra("dataUrl", "file:///android_asset/response.html");
 			startActivity(intent);

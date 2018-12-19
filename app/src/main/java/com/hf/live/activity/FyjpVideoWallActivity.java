@@ -59,7 +59,7 @@ import okhttp3.Response;
  * 视频墙
  * @author shawn_sun
  */
-public class ShawnVideoWallActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpVideoWallActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
 	private LinearLayout llUploadYes,llUploadNo,llSearch;//已上传
@@ -80,7 +80,7 @@ public class ShawnVideoWallActivity extends ShawnBaseActivity implements OnClick
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_video_wall);
+		setContentView(R.layout.fyjp_activity_video_wall);
 		mContext = this;
 		initWidget();
 		initSearchListView();
@@ -347,9 +347,9 @@ public class ShawnVideoWallActivity extends ShawnBaseActivity implements OnClick
 				PhotoDto dto = searchList.get(arg2);
 				Intent intent = new Intent();
 				if (dto.workstype.equals("imgs")) {
-					intent.setClass(mContext, ShawnOnlinePictureActivity.class);
+					intent.setClass(mContext, FyjpOnlinePictureActivity.class);
 				}else {
-					intent.setClass(mContext, ShawnOnlineVideoActivity.class);
+					intent.setClass(mContext, FyjpOnlineVideoActivity.class);
 				}
 				Bundle bundle = new Bundle();
 				bundle.putParcelable("data", dto);

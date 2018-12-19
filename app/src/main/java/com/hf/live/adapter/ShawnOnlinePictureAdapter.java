@@ -57,7 +57,7 @@ public class ShawnOnlinePictureAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder mHolder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.shawn_adapter_online_picture, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adapter_online_picture, null);
 			mHolder = new ViewHolder();
 			mHolder.imageView = convertView.findViewById(R.id.imageView);
 			convertView.setTag(mHolder);

@@ -61,7 +61,7 @@ public class ShawnDisplayPictureAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder mHolder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.shawn_adapter_display_picture, null);
+			convertView = mInflater.inflate(R.layout.fyjp_adapter_display_picture, null);
 			mHolder = new ViewHolder();
 			mHolder.imageView = convertView.findViewById(R.id.imageView);
 			mHolder.imageView1 = convertView.findViewById(R.id.imageView1);

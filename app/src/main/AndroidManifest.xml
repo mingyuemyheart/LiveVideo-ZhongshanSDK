@@ -55,7 +55,7 @@
            <!--android:value="01f99224a6594c739f0a260a67b4f146"/>-->
 
         <activity
-            android:name=".activity.ShawnWelcomeActivity"
+            android:name=".activity.FyjpWelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
             <!--<intent-filter>-->
@@ -65,75 +65,75 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name=".activity.ShawnMainActivity"
+            android:name=".activity.FyjpMainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ShawnPersonCenterActivity"
+            android:name=".activity.FyjpPersonCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name=".activity.ShawnCameraActivity"
+            android:name=".activity.FyjpCameraActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize" />
         <activity 
-            android:name=".activity.ShawnDisplayVideoActivity"
+            android:name=".activity.FyjpDisplayVideoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize" />
         <activity 
-            android:name=".activity.ShawnDisplayPictureActivity"
+            android:name=".activity.FyjpDisplayPictureActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize" />
         <activity 
-            android:name=".activity.ShawnUploadedActivity"
+            android:name=".activity.FyjpUploadedActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name=".activity.ShawnMsgActivity"
+            android:name=".activity.FyjpMsgActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ShawnVideoWallActivity"
+            android:name=".activity.FyjpVideoWallActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity 
-            android:name=".activity.ShawnOnlineVideoActivity"
+            android:name=".activity.FyjpOnlineVideoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustResize" />
         <activity 
-            android:name=".activity.ShawnOnlinePictureActivity"
+            android:name=".activity.FyjpOnlinePictureActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.ShawnSettingActivity"
+            android:name=".activity.FyjpSettingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name=".activity.ShawnModifyInfoActivity"
+            android:name=".activity.FyjpModifyInfoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name=".activity.ShawnResponseActivity"
+            android:name=".activity.FyjpResponseActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name=".activity.ShawnAboutActivity"
+            android:name=".activity.FyjpAboutActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ShawnCheckActivity"
+            android:name=".activity.FyjpCheckActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".activity.ShawnPersonInfoActivity"
+            android:name=".activity.FyjpPersonInfoActivity"
             android:screenOrientation="portrait" />
 
     </application>

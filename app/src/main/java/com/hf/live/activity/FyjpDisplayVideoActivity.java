@@ -84,7 +84,7 @@ import java.util.TimerTask;
  * 预览、上传界面
  * @author shawn_sun
  */
-public class ShawnDisplayVideoActivity extends Activity implements SurfaceHolder.Callback, OnPreparedListener,
+public class FyjpDisplayVideoActivity extends Activity implements SurfaceHolder.Callback, OnPreparedListener,
 OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationListener{
 	
 	private Context mContext = null;
@@ -127,7 +127,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_display_video);
+		setContentView(R.layout.fyjp_activity_display_video);
 		mContext = this;
 		checkAuthority();
 	}
@@ -650,7 +650,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	 */
 	private void deleteVideoDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_delete, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_delete, null);
 		TextView tvMessage = (TextView) view.findViewById(R.id.tvMessage);
 		LinearLayout llNegative = (LinearLayout) view.findViewById(R.id.llNegative);
 		LinearLayout llPositive = (LinearLayout) view.findViewById(R.id.llPositive);
@@ -699,7 +699,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	 */
 	private void uploadVideoDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_upload, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_upload, null);
 		LinearLayout llPositive = (LinearLayout) view.findViewById(R.id.llPositive);
 		
 		final Dialog dialog = new Dialog(mContext, R.style.CustomProgressDialog);
@@ -787,7 +787,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	 */
 	private void uploadSuccessDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.shawn_dialog_upload_success, null);
+		View view = inflater.inflate(R.layout.fyjp_dialog_upload_success, null);
 		LinearLayout llPositive = (LinearLayout) view.findViewById(R.id.llPositive);
 		
 		final Dialog dialog = new Dialog(mContext, R.style.CustomProgressDialog);

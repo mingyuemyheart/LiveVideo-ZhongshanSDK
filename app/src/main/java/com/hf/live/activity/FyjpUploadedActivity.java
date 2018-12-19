@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * 我的上传
  */
-public class ShawnUploadedActivity extends ShawnBaseActivity implements OnClickListener{
+public class FyjpUploadedActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private LinearLayout llUploadYes,llUploadNo;//已上传
 	private TextView tvUploadYes,tvUploadNo;
@@ -40,7 +40,7 @@ public class ShawnUploadedActivity extends ShawnBaseActivity implements OnClickL
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shawn_activity_uploaded);
+		setContentView(R.layout.fyjp_activity_uploaded);
 		initWidget();
 		checkAuthority();
 	}

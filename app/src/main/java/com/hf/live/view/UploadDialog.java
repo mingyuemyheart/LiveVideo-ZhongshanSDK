@@ -35,7 +35,7 @@ public class UploadDialog extends Dialog {
 		super.onCreate(savedInstanceState);
 		setStyle(Window.FEATURE_NO_TITLE);
 		getWindow().setBackgroundDrawableResource(R.color.transparent);
-		setContentView(R.layout.shawn_dialog_uploading);
+		setContentView(R.layout.fyjp_dialog_uploading);
 		initWidget();
 	}
 	

@@ -77,7 +77,7 @@ import java.util.Locale;
  * 视频录制
  * @author shawn_sun
  */
-public class ShawnCameraActivity extends Activity implements SurfaceHolder.Callback, OnClickListener, AMapLocationListener {
+public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callback, OnClickListener, AMapLocationListener {
 	
 	private Context mContext = null;
 	private SurfaceView surfaceView = null;
@@ -116,7 +116,7 @@ public class ShawnCameraActivity extends Activity implements SurfaceHolder.Callb
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		setContentView(R.layout.shawn_activity_camera);
+		setContentView(R.layout.fyjp_activity_camera);
 		mContext = this;
 		checkAuthority();
 	}
@@ -235,7 +235,7 @@ public class ShawnCameraActivity extends Activity implements SurfaceHolder.Callb
 					dto.videoUrl = intentVideoUrl;
 					selectList.add(dto);
 
-					Intent intent = new Intent(mContext, ShawnDisplayVideoActivity.class);
+					Intent intent = new Intent(mContext, FyjpDisplayVideoActivity.class);
 					Bundle bundle = new Bundle();
 					bundle.putParcelableArrayList("selectList", (ArrayList<? extends Parcelable>) selectList);
 					intent.putExtras(bundle);
@@ -829,7 +829,7 @@ public class ShawnCameraActivity extends Activity implements SurfaceHolder.Callb
 	    ivChangeLand.setVisibility(View.VISIBLE);
 		ivDoneLand.setVisibility(View.GONE);
 		isFull = false;
-	    Intent intent = new Intent(mContext, ShawnDisplayPictureActivity.class);
+	    Intent intent = new Intent(mContext, FyjpDisplayPictureActivity.class);
 	    intent.putExtra("takeTime", sdf1.format(System.currentTimeMillis()));
 		Bundle bundle = new Bundle();
 		bundle.putParcelableArrayList("selectList", (ArrayList<? extends Parcelable>) selectList);
@@ -964,7 +964,7 @@ public class ShawnCameraActivity extends Activity implements SurfaceHolder.Callb
 						data.setWorkstype("video");
 						data.setWorkTime(sdf1.format(System.currentTimeMillis()));
 						data.setVideoUrl(intentVideoUrl);
-						Intent intent = new Intent(mContext, ShawnDisplayVideoActivity.class);
+						Intent intent = new Intent(mContext, FyjpDisplayVideoActivity.class);
 						Bundle bundle = new Bundle();
 						bundle.putParcelable("data", data);
 						intent.putExtras(bundle);
@@ -977,7 +977,7 @@ public class ShawnCameraActivity extends Activity implements SurfaceHolder.Callb
 					data.setWorkstype("video");
 					data.setWorkTime(sdf1.format(System.currentTimeMillis()));
 					data.setVideoUrl(intentVideoUrl);
-					Intent intent = new Intent(mContext, ShawnDisplayVideoActivity.class);
+					Intent intent = new Intent(mContext, FyjpDisplayVideoActivity.class);
 					Bundle bundle = new Bundle();
 					bundle.putParcelable("data", data);
 					intent.putExtras(bundle);
