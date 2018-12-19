@@ -38,12 +38,13 @@
     <application
         android:name="com.hf.live.common.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/iv_logo"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme"
         android:supportsRtl="true"
-        tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="icon, label, theme">
+        tools:ignore="GoogleAppIndexingWarning">
+
+
+        <!--android:icon="@drawable/iv_logo"-->
+        <!--android:label="@string/app_name"-->
+        <!--android:theme="@style/AppTheme"-->
 
         <!--&lt;!&ndash; 定位需要的服务 &ndash;&gt;-->
         <!--<service android:name="com.amap.api.location.APSService" />-->
