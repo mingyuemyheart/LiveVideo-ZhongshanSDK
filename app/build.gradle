@@ -82,6 +82,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation files('libs/httpmime-4.1.3.jar')
     implementation files('libs/scene-final.jar')
+    //使用compileOnly是为了避免引用重复jar包
     compileOnly files('libs/ChinaWeatherAPI.jar')
     compileOnly files('libs/uk-co-senab-photoview.jar')
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
