@@ -50,8 +50,6 @@ public class ShawnWelcomeActivity extends Activity{
 
 		String userName = getIntent().getStringExtra("userName");
 		String passWord = getIntent().getStringExtra("passWord");
-		userName = "shawn1";
-		passWord = "123456";
 		OkHttpLogin(userName, passWord);
 	}
 

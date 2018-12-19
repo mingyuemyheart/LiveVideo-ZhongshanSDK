@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -39,7 +38,6 @@ import com.hf.live.dto.PhotoDto;
 import com.hf.live.util.AuthorityUtil;
 import com.hf.live.util.GetPathFromUri4kitkat;
 import com.hf.live.util.WeatherUtil;
-import com.hf.live.util.sofia.Sofia;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,9 +72,6 @@ public class ShawnMainActivity extends ShawnBaseActivity implements AMapLocation
 		setContentView(R.layout.shawn_activity_main);
 		MyApplication.addDestoryActivity(this, "ShawnMainActivity");
 		mContext = this;
-		Sofia.with(this)
-				.invasionStatusBar()//设置顶部状态栏缩进
-				.statusBarBackground(Color.TRANSPARENT);//设置状态栏颜色
 		initWidget();
 	}
 	

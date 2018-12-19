@@ -11,6 +11,7 @@ apply plugin: 'com.android.library'
 //maven { url 'https://www.jitpack.io' }
 //7、执行./gradlew install
 //8、提交代码至github，并更新发布gitpack
+//9、注释掉manifest里icon、lable、theme信息
 
 android {
     compileSdkVersion 27
@@ -23,8 +24,8 @@ android {
 //        applicationId "com.hf.live"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1333
-        versionName "1.3.6"
+        versionCode 1334
+        versionName "1.3.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
