@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#121926</color>//标题栏颜色
+    <color name="colorPrimaryDark">#121926</color>//状态栏颜色
+    <color name="colorAccent">#A3A7AC</color>//按钮选中颜色
+
+    <color name="text_color1">#F0F0F0</color>
+    <color name="text_color2">#A3A7AC</color>
+    <color name="text_color3">#3b3c3d</color>
+    <color name="text_color4">#707372</color>
+    <color name="light_pink">#ffd5d5</color>
+    <color name="light_blue">#c1e7ff</color>
+    <color name="light_gray">#f0eff5</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucent">#80000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="gray">#AAAAAA</color>
+    <color name="blue">#027cfe</color>
+    <color name="yellow">#fff139</color>
+    <color name="green">#00ff00</color>
+    <color name="orange">#fd8612</color>
+    <color name="red">#FF3A31</color>
+    <color name="cell_default">#00000000</color>
+    <color name="cell_pressed">#30ffffff</color>
+    <color name="main_color">#353C48</color>
+    
+    <color name="refresh_color1">#960c1b</color>
+    <color name="refresh_color2">#30960c1b</color>
+    <color name="refresh_color3">#960c1b</color>
+    <color name="refresh_color4">#30960c1b</color>
+</resources>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shawn_bg_main"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/reTitle"
+        layout="@layout/shawn_layout_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#30000000"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/llPortrait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shawn_selector_item"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="头像"
+                android:textColor="@color/white"
+                android:textSize="@dimen/level_4" />
+
+            <com.hf.live.view.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/ivPortrait"
+                android:layout_width="60dip"
+                android:layout_height="60dip"
+                android:layout_marginEnd="10dip"
+                android:src="@drawable/iv_portrait"
+                app:civ_border_color="#d9e0ef"
+                app:civ_border_width="1dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/shawn_selector_item"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="账号"
+                android:textColor="@color/white"
+                android:textSize="@dimen/level_4" />
+
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/shawn_selector_item"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="积分"
+                android:textColor="@color/white"
+                android:textSize="@dimen/level_4" />
+
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#30000000"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/llNickName"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/shawn_selector_item"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="昵称"
+                android:textColor="@color/white"
+                android:textSize="@dimen/level_4" />
+
+            <TextView
+                android:id="@+id/tvNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+
+            <ImageView
+                android:layout_width="10dip"
+                android:layout_height="18dip"
+                android:src="@drawable/iv_arrow" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:id="@+id/llMail"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/shawn_selector_item"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="邮箱"
+                android:textColor="@color/white"
+                android:textSize="@dimen/level_4" />
+
+            <TextView
+                android:id="@+id/tvMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+
+            <ImageView
+                android:layout_width="10dip"
+                android:layout_height="18dip"
+                android:src="@drawable/iv_arrow" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:id="@+id/llUnit"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/shawn_selector_item"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="单位名称"
+                android:textColor="@color/white"
+                android:textSize="@dimen/level_4" />
+
+            <TextView
+                android:id="@+id/tvUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+
+            <ImageView
+                android:layout_width="10dip"
+                android:layout_height="18dip"
+                android:src="@drawable/iv_arrow" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

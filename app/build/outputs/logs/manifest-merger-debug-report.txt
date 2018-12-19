@@ -1,0 +1,317 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+	package
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:4:11-32
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:3:11-57
+	android:versionCode
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:1-139:12
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:8:22-76
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:9:5-76
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:9:22-73
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:10:5-76
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:10:22-73
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:11:5-80
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:11:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:12:5-78
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:13:22-72
+uses-permission#android.permission.CALL_PHONE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:14:5-69
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:14:22-66
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:15:5-80
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:15:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:16:5-79
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:16:22-77
+uses-permission#android.permission.CHANGE_CONFIGURATION
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:18:5-79
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:18:22-76
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:19:5-73
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:19:22-70
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:20:5-81
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:20:22-78
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:21:5-80
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:21:22-77
+uses-permission#android.permission.BROADCAST_STICKY
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:22:5-75
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:22:22-72
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:23:5-71
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:23:22-68
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:24:22-65
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:25:5-84
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:25:22-81
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:26:5-75
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:26:22-72
+uses-permission#android.permission.GET_TASKS
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:28:5-68
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:28:22-65
+uses-permission#android.permission.CAMERA
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:29:5-65
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:29:22-62
+uses-permission#android.permission.FLASHLIGHT
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:30:5-69
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:30:22-66
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:31:5-78
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:31:22-75
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:32:5-66
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:32:22-63
+uses-feature#android.hardware.autofocus
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:34:5-63
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:34:19-60
+uses-feature#android.hardware.camera
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:35:5-60
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:35:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:36:5-70
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:36:19-67
+application
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:38:5-137:19
+	android:label
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:42:9-41
+	tools:ignore
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:45:9-48
+	android:icon
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:41:9-41
+	android:allowBackup
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:40:9-35
+	android:theme
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:44:9-40
+	tools:replace
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:43:9-38
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:39:9-56
+activity#com.hf.live.activity.ShawnWelcomeActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:55:9-64:20
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:57:13-49
+	android:theme
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:58:13-77
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:56:13-69
+activity#com.hf.live.activity.ShawnMainActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:65:9-67:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:67:13-49
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:66:13-66
+activity#com.hf.live.activity.ShawnPersonCenterActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:68:9-71:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:71:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:70:13-44
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:69:13-74
+activity#com.hf.live.activity.ShawnCameraActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:72:9-77:86
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:75:13-50
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:74:13-44
+	android:configChanges
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:77:13-83
+	android:theme
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:76:13-71
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:73:13-68
+activity#com.hf.live.activity.ShawnDisplayVideoActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:78:9-82:86
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:81:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:80:13-44
+	android:configChanges
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:82:13-83
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:79:13-74
+activity#com.hf.live.activity.ShawnDisplayPictureActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:83:9-87:86
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:86:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:85:13-44
+	android:configChanges
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:87:13-83
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:84:13-76
+activity#com.hf.live.activity.ShawnUploadedActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:88:9-91:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:91:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:90:13-44
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:89:13-70
+activity#com.hf.live.activity.ShawnMsgActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:92:9-95:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:95:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:94:13-44
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:93:13-65
+activity#com.hf.live.activity.ShawnVideoWallActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:96:9-100:67
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:99:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:98:13-44
+	android:windowSoftInputMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:100:13-64
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:97:13-71
+activity#com.hf.live.activity.ShawnOnlineVideoActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:101:9-106:58
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:104:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:103:13-44
+	android:windowSoftInputMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:106:13-55
+	android:configChanges
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:105:13-83
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:102:13-73
+activity#com.hf.live.activity.ShawnOnlinePictureActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:107:9-111:58
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:110:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:109:13-44
+	android:windowSoftInputMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:111:13-55
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:108:13-75
+activity#com.hf.live.activity.ShawnSettingActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:112:9-115:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:115:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:114:13-44
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:113:13-69
+activity#com.hf.live.activity.ShawnModifyInfoActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:116:9-119:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:119:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:118:13-44
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:117:13-72
+activity#com.hf.live.activity.ShawnResponseActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:120:9-123:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:123:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:122:13-44
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:121:13-70
+activity#com.hf.live.activity.ShawnAboutActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:124:9-127:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:127:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:126:13-44
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:125:13-67
+activity#com.hf.live.activity.ShawnCheckActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:128:9-132:67
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:131:13-49
+	android:launchMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:130:13-44
+	android:windowSoftInputMode
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:132:13-64
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:129:13-67
+activity#com.hf.live.activity.ShawnPersonInfoActivity
+ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:133:9-135:52
+	android:screenOrientation
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:135:13-49
+	android:name
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml:134:13-72
+uses-sdk
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+		ADDED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/shawn/Downloads/LiveVideo-huishang/app/src/main/AndroidManifest.xml

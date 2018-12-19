@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dip"
+    android:background="@color/white"
+    android:gravity="center_vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dip"
+            android:layout_height="100dip"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/ivVideo"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_centerInParent="true"
+            android:src="@drawable/iv_video_logo"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/ivLocation"
+                android:layout_width="13dip"
+                android:layout_height="13dip"
+                android:src="@drawable/iv_location_blue" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="北京  东城"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_5" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="13:02"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/level_5" />
+
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginTop="2dip"
+            android:background="#20ffffff" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_weight="1"
+            android:maxLines="3"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:text="测试标题"
+            android:textColor="@color/black"
+            android:textSize="@dimen/level_5" />
+
+        <TextView
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+                android:layout_marginStart="3dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="王文博"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_5" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageView
+                        android:id="@+id/ivPraise"
+                        android:layout_width="13dip"
+                        android:layout_height="13dip"
+                        android:layout_marginEnd="2dip"
+                        android:src="@drawable/iv_unlike" />
+
+                    <TextView
+                        android:id="@+id/tvPraise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12"
+                        android:textColor="@color/text_color2"
+                        android:textSize="@dimen/level_5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical" >
+
+                    <ImageView
+                        android:id="@+id/ivComment"
+                        android:layout_width="15dip"
+                        android:layout_height="15dip"
+                        android:layout_marginEnd="2dip"
+                        android:src="@drawable/iv_reply" />
+
+                    <TextView
+                        android:id="@+id/tvComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12"
+                        android:textColor="@color/text_color2"
+                        android:textSize="@dimen/level_5" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

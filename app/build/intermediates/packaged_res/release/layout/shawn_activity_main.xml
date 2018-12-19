@@ -1,0 +1,346 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shawn_bg_main"
+    android:orientation="vertical" >
+    
+    <ImageView
+        android:id="@+id/ivCenter"
+        android:layout_width="150dip"
+        android:layout_height="172dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dip"
+        android:background="@drawable/iv_six_empty" />
+
+    <RelativeLayout
+        android:id="@+id/reLive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dip"
+        android:translationX="-50dip"
+        android:translationY="-80dip" >
+
+        <ImageView
+            android:id="@+id/ivLive"
+            android:layout_width="150dip"
+            android:layout_height="172dip"
+            android:background="@drawable/iv_live" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivLive"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dip"
+            android:text="@string/living"
+            android:textColor="@color/text_color1"
+            android:textSize="@dimen/level_1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/reCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dip"
+        android:translationX="50dip"
+        android:translationY="80dip" >
+
+        <ImageView
+            android:id="@+id/ivCamera"
+            android:layout_width="150dip"
+            android:layout_height="172dip"
+            android:background="@drawable/iv_camera" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivCamera"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dip"
+            android:text="@string/camera"
+            android:textColor="@color/text_color1"
+            android:textSize="@dimen/level_1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/reVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dip"
+        android:translationX="-105dip"
+        android:translationY="90dip" >
+
+        <ImageView
+            android:id="@+id/ivVideo"
+            android:layout_width="80dip"
+            android:layout_height="92dip"
+            android:background="@drawable/iv_video" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivVideo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dip"
+            android:text="@string/video"
+            android:textColor="@color/text_color1"
+            android:textSize="@dimen/level_4" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/reMeet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dip"
+        android:translationX="105dip"
+        android:translationY="-10dip" >
+
+        <ImageView
+            android:id="@+id/ivMeet"
+            android:layout_width="80dp"
+            android:layout_height="92dp"
+            android:background="@drawable/iv_person2" />
+
+        <TextView
+            android:id="@+id/tvMeet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivMeet"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dip"
+            android:text="@string/person"
+            android:textColor="@color/text_color1"
+            android:textSize="@dimen/level_4" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:id="@+id/ivLocation"
+                android:layout_width="15dip"
+                android:layout_height="15dip"
+                android:layout_centerVertical="true"
+                android:src="@drawable/iv_location" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dip"
+                android:layout_toEndOf="@+id/ivLocation"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dip"
+                android:layout_marginEnd="10dip"
+                android:layout_toStartOf="@+id/ivRefresh"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+
+            <ImageView
+                android:id="@+id/ivRefresh"
+                android:layout_width="20dip"
+                android:layout_height="20dip"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/iv_refresh" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="10dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical" >
+
+                <ImageView
+                    android:id="@+id/ivPhenomenon"
+                    android:layout_width="20dip"
+                    android:layout_height="20dip" />
+
+                <TextView
+                    android:id="@+id/tvPhenomenon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dip"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/level_4" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0.5dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/vertical_line" />
+
+            <TextView
+                android:id="@+id/tvFactTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+
+            <TextView
+                android:layout_width="0.5dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/vertical_line" />
+
+            <TextView
+                android:id="@+id/tvBodyTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="10dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical" >
+
+                <ImageView
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:src="@drawable/iv_wind" />
+
+                <TextView
+                    android:id="@+id/tvWind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dip"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/level_4" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0.5dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/vertical_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical" >
+
+                <ImageView
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:src="@drawable/iv_humidity" />
+
+                <TextView
+                    android:id="@+id/tvHumitidy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dip"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/level_4" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="#20ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="10dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical" >
+
+                <ImageView
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:src="@drawable/iv_rainfall" />
+
+                <TextView
+                    android:id="@+id/tvRainFall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dip"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/level_4" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0.5dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/vertical_line" />
+
+            <TextView
+                android:id="@+id/tvAQI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/level_4" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.DeviceDefault.ProgressBar"
+        android:layout_width="30dp"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:indeterminateDrawable="@anim/anim_loading_white" />
+    
+</RelativeLayout>

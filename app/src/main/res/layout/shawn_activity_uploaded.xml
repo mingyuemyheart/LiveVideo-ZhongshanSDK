@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shawn_bg_main"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/reTitle"
+        layout="@layout/shawn_layout_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2" >
+
+        <LinearLayout
+            android:id="@+id/llUploadYes"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/red_bg"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tvUploadYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="@string/upload_yes"
+                android:textColor="@color/text_color1"
+                android:textSize="@dimen/level_4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llUploadNo"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/white_bg"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tvUploadNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="@string/upload_no"
+                android:textColor="@color/black"
+                android:textSize="@dimen/level_4" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.hf.live.view.MainViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#f2f2f2" />
+
+</LinearLayout>

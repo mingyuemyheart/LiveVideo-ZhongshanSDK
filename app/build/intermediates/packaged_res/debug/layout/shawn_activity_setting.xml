@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shawn_bg_main"
+                android:orientation="vertical">
+
+    <include
+        android:id="@+id/reTitle"
+        layout="@layout/shawn_layout_title"/>
+
+    <LinearLayout
+        android:id="@+id/llLocalSave"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:layout_below="@+id/reTitle"
+        android:background="@drawable/shawn_selector_item"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/local_save"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/level_4"/>
+
+        <TextView
+            android:id="@+id/tvLocalSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dip"
+            android:textColor="@color/text_color1"
+            android:textSize="@dimen/level_4"/>
+
+        <ImageView
+            android:layout_width="10dip"
+            android:layout_height="18dip"
+            android:src="@drawable/iv_arrow"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_below="@+id/llLocalSave"
+        android:background="#20ffffff"/>
+
+    <LinearLayout
+        android:id="@+id/llLocalCache"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:layout_below="@+id/divider1"
+        android:background="@drawable/shawn_selector_item"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/local_cache"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/level_4"/>
+
+        <TextView
+            android:id="@+id/tvLocalCache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dip"
+            android:textColor="@color/text_color1"
+            android:textSize="@dimen/level_4"/>
+
+        <ImageView
+            android:layout_width="10dip"
+            android:layout_height="18dip"
+            android:src="@drawable/iv_arrow"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_below="@+id/llLocalCache"
+        android:background="#20ffffff"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tvLogout"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dip"
+        android:background="@drawable/selector_login"
+        android:gravity="center"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textSize="@dimen/level_3"/>
+
+</RelativeLayout>
