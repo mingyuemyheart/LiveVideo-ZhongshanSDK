@@ -55,7 +55,7 @@
            <!--android:value="01f99224a6594c739f0a260a67b4f146"/>-->
 
         <activity
-            android:name="com.hf.live.activity.ShawnWelcomeActivity"
+            android:name=".activity.ShawnWelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
             <!--<intent-filter>-->
@@ -65,75 +65,75 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name="com.hf.live.activity.ShawnMainActivity"
+            android:name=".activity.ShawnMainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.hf.live.activity.ShawnPersonCenterActivity"
+            android:name=".activity.ShawnPersonCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name="com.hf.live.activity.ShawnCameraActivity"
+            android:name=".activity.ShawnCameraActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize" />
         <activity 
-            android:name="com.hf.live.activity.ShawnDisplayVideoActivity"
+            android:name=".activity.ShawnDisplayVideoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize" />
         <activity 
-            android:name="com.hf.live.activity.ShawnDisplayPictureActivity"
+            android:name=".activity.ShawnDisplayPictureActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize" />
         <activity 
-            android:name="com.hf.live.activity.ShawnUploadedActivity"
+            android:name=".activity.ShawnUploadedActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name="com.hf.live.activity.ShawnMsgActivity"
+            android:name=".activity.ShawnMsgActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.hf.live.activity.ShawnVideoWallActivity"
+            android:name=".activity.ShawnVideoWallActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity 
-            android:name="com.hf.live.activity.ShawnOnlineVideoActivity"
+            android:name=".activity.ShawnOnlineVideoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustResize" />
         <activity 
-            android:name="com.hf.live.activity.ShawnOnlinePictureActivity"
+            android:name=".activity.ShawnOnlinePictureActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.hf.live.activity.ShawnSettingActivity"
+            android:name=".activity.ShawnSettingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name="com.hf.live.activity.ShawnModifyInfoActivity"
+            android:name=".activity.ShawnModifyInfoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name="com.hf.live.activity.ShawnResponseActivity"
+            android:name=".activity.ShawnResponseActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity 
-            android:name="com.hf.live.activity.ShawnAboutActivity"
+            android:name=".activity.ShawnAboutActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.hf.live.activity.ShawnCheckActivity"
+            android:name=".activity.ShawnCheckActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="com.hf.live.activity.ShawnPersonInfoActivity"
+            android:name=".activity.ShawnPersonInfoActivity"
             android:screenOrientation="portrait" />
 
     </application>
