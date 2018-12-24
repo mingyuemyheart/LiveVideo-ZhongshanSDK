@@ -301,7 +301,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			if ((System.currentTimeMillis() - mExitTime) > 2000) {
-				Toast.makeText(mContext, getString(R.string.confirm_exit)+getString(R.string.app_name), Toast.LENGTH_SHORT).show();
+				Toast.makeText(mContext, getString(R.string.confirm_exit)+getString(R.string.fyjp_app_name), Toast.LENGTH_SHORT).show();
 				mExitTime = System.currentTimeMillis();
 			} else {
 				finish();

@@ -120,7 +120,7 @@ public class FyjpAboutActivity extends FyjpBaseActivity implements OnClickListen
 
 		} else if (i == R.id.tvAddress) {
 			Intent intent = new Intent(mContext, FyjpResponseActivity.class);
-			intent.putExtra("activityName", getString(R.string.app_name));
+			intent.putExtra("activityName", getString(R.string.fyjp_app_name));
 			intent.putExtra("dataUrl", tvAddress.getText().toString());
 			startActivity(intent);
 
