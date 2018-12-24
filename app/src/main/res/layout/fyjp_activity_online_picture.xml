@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shawn_bg_main"
+    android:background="@drawable/fyjp_bg_main"
     android:orientation="vertical" >
 
     <include
@@ -22,7 +22,7 @@
         android:numColumns="4"
         android:overScrollMode="never"
         android:scrollbarStyle="outsideOverlay"
-        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarThumbVertical="@drawable/fyjp_scrollbar_vertical_thumb"
         android:stretchMode="columnWidth"
         android:verticalSpacing="3dip" />
 
@@ -114,7 +114,7 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:scrollbarStyle="outsideOverlay"
-            android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb" />
+            android:scrollbarThumbVertical="@drawable/fyjp_scrollbar_vertical_thumb" />
 
         <TextView
             android:id="@+id/line2"
@@ -141,7 +141,7 @@
             android:layout_height="25dip"
             android:layout_centerVertical="true"
             android:layout_marginStart="50dp"
-            android:src="@drawable/iv_reply" />
+            android:src="@drawable/fyjp_icon_reply" />
 
         <ImageView
             android:id="@+id/ivPraise"
@@ -150,7 +150,7 @@
             android:layout_marginEnd="50dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/iv_unlike" />
+            android:src="@drawable/fyjp_icon_unlike" />
 
     </RelativeLayout>
 
@@ -169,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/corner_edittext_transparent"
+            android:background="@drawable/fyjp_corner_edittext_transparent"
             android:paddingLeft="5dip"
             android:textColor="@color/black"
             android:textSize="@dimen/level_4" />

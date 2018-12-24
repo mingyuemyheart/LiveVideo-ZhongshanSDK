@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.common.MyApplication;
-import com.hf.live.util.OkHttpUtil;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.util.FyjpOkHttpUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -107,7 +107,7 @@ public class FyjpModifyInfoActivity extends FyjpBaseActivity implements OnClickL
 	private void OkHttpModify() {
 		final String url = "http://channellive2.tianqi.cn/weather/user/update";
 		FormBody.Builder builder = new FormBody.Builder();
-		builder.add("token", MyApplication.TOKEN);
+		builder.add("token", FyjpApplication.TOKEN);
 		if (TextUtils.equals(title, "昵称")) {
 			builder.add("nickname", etContent.getText().toString().trim());
 		}else if (TextUtils.equals(title, "邮箱")) {
@@ -119,7 +119,7 @@ public class FyjpModifyInfoActivity extends FyjpBaseActivity implements OnClickL
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -141,31 +141,31 @@ public class FyjpModifyInfoActivity extends FyjpBaseActivity implements OnClickL
 												if (!object.isNull("info")) {
 													JSONObject obj = new JSONObject(object.getString("info"));
 													if (!obj.isNull("token")) {
-														MyApplication.TOKEN = obj.getString("token");
+														FyjpApplication.TOKEN = obj.getString("token");
 													}
 													if (!obj.isNull("phonenumber")) {
-														MyApplication.USERNAME = obj.getString("phonenumber");
+														FyjpApplication.USERNAME = obj.getString("phonenumber");
 													}
 													if (!obj.isNull("username")) {
-														MyApplication.OLDUSERNAME = obj.getString("username");
+														FyjpApplication.OLDUSERNAME = obj.getString("username");
 													}
 													if (!obj.isNull("nickname")) {
-														MyApplication.NICKNAME = obj.getString("nickname");
+														FyjpApplication.NICKNAME = obj.getString("nickname");
 													}
 													if (!obj.isNull("mail")) {
-														MyApplication.MAIL = obj.getString("mail");
+														FyjpApplication.MAIL = obj.getString("mail");
 													}
 													if (!obj.isNull("department")) {
-														MyApplication.UNIT = obj.getString("department");
+														FyjpApplication.UNIT = obj.getString("department");
 													}
 													if (!obj.isNull("groupid")) {
-														MyApplication.GROUPID = obj.getString("groupid");
+														FyjpApplication.GROUPID = obj.getString("groupid");
 													}
 													if (!obj.isNull("points")) {
-														MyApplication.POINTS = obj.getString("points");
+														FyjpApplication.POINTS = obj.getString("points");
 													}
 
-													MyApplication.saveUserInfo(mContext);
+													FyjpApplication.saveUserInfo(mContext);
 													setResult(RESULT_OK);
 													finish();
 

@@ -19,10 +19,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hf.live.R;
-import com.hf.live.fragment.ShawnLocalFragment;
-import com.hf.live.fragment.ShawnUploadedFragment;
-import com.hf.live.util.AuthorityUtil;
-import com.hf.live.view.MainViewPager;
+import com.hf.live.fragment.FyjpShawnLocalFragment;
+import com.hf.live.fragment.FyjpShawnUploadedFragment;
+import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.view.FyjpMainViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class FyjpUploadedActivity extends FyjpBaseActivity implements OnClickLis
 	
 	private LinearLayout llUploadYes,llUploadNo;//已上传
 	private TextView tvUploadYes,tvUploadNo;
-	private MainViewPager viewPager;
+	private FyjpMainViewPager viewPager;
 	private List<Fragment> fragments = new ArrayList<>();
 	
 	@Override
@@ -65,9 +65,9 @@ public class FyjpUploadedActivity extends FyjpBaseActivity implements OnClickLis
 	 * 初始化viewPager
 	 */
 	private void initViewPager() {
-		Fragment fragment1 = new ShawnUploadedFragment();
+		Fragment fragment1 = new FyjpShawnUploadedFragment();
 		fragments.add(fragment1);
-		Fragment fragment2 = new ShawnLocalFragment();
+		Fragment fragment2 = new FyjpShawnLocalFragment();
 		fragments.add(fragment2);
 			
 		viewPager = findViewById(R.id.viewPager);
@@ -81,13 +81,13 @@ public class FyjpUploadedActivity extends FyjpBaseActivity implements OnClickLis
 		@Override
 		public void onPageSelected(int arg0) {
 			if (arg0 == 0) {
-				llUploadYes.setBackgroundResource(R.drawable.red_bg);
-				llUploadNo.setBackgroundResource(R.drawable.white_bg);
+				llUploadYes.setBackgroundResource(R.drawable.fyjp_bg_column_red);
+				llUploadNo.setBackgroundResource(R.drawable.fyjp_bg_column_white);
 				tvUploadYes.setTextColor(getResources().getColor(R.color.text_color1));
 				tvUploadNo.setTextColor(getResources().getColor(R.color.black));
 			}else if (arg0 == 1) {
-				llUploadYes.setBackgroundResource(R.drawable.white_bg);
-				llUploadNo.setBackgroundResource(R.drawable.red_bg);
+				llUploadYes.setBackgroundResource(R.drawable.fyjp_bg_column_white);
+				llUploadNo.setBackgroundResource(R.drawable.fyjp_bg_column_red);
 				tvUploadYes.setTextColor(getResources().getColor(R.color.black));
 				tvUploadNo.setTextColor(getResources().getColor(R.color.text_color1));
 			}
@@ -204,7 +204,7 @@ public class FyjpUploadedActivity extends FyjpBaseActivity implements OnClickLis
 				initViewPager();
 			}else {
 				String[] permissions = deniedList.toArray(new String[deniedList.size()]);//将list转成数组
-				ActivityCompat.requestPermissions(this, permissions, AuthorityUtil.AUTHOR_STORAGE);
+				ActivityCompat.requestPermissions(this, permissions, FyjpAuthorityUtil.AUTHOR_STORAGE);
 			}
 		}
 	}
@@ -213,7 +213,7 @@ public class FyjpUploadedActivity extends FyjpBaseActivity implements OnClickLis
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		switch (requestCode) {
-			case AuthorityUtil.AUTHOR_STORAGE:
+			case FyjpAuthorityUtil.AUTHOR_STORAGE:
 				if (grantResults.length > 0) {
 					boolean isAllGranted = true;//是否全部授权
 					for (int gResult : grantResults) {

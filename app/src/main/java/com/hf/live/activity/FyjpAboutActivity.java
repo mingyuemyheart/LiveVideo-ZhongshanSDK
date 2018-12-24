@@ -22,8 +22,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hf.live.R;
-import com.hf.live.util.AuthorityUtil;
-import com.hf.live.util.CommonUtil;
+import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.util.FyjpCommonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,15 +64,15 @@ public class FyjpAboutActivity extends FyjpBaseActivity implements OnClickListen
 		tvHotline.setOnClickListener(this);
 		ImageView ivLogo = findViewById(R.id.ivLogo);
 		
-		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.iv_logo);
+		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.fyjp_icon_logo);
 		if (bitmap != null) {
-			Bitmap newBitmap = CommonUtil.getRoundedCornerBitmap(bitmap, 10);
+			Bitmap newBitmap = FyjpCommonUtil.getRoundedCornerBitmap(bitmap, 10);
 			if (newBitmap != null) {
 				ivLogo.setImageBitmap(newBitmap);
 			}
 		}
 		
-		tvVersion.setText(CommonUtil.getVersion(mContext));
+		tvVersion.setText(FyjpCommonUtil.getVersion(mContext));
 	}
 	
 	/**
@@ -155,7 +155,7 @@ public class FyjpAboutActivity extends FyjpBaseActivity implements OnClickListen
 				dialogCall();
 			}else {
 				String[] permissions = deniedList.toArray(new String[deniedList.size()]);//将list转成数组
-				ActivityCompat.requestPermissions(this, permissions, AuthorityUtil.AUTHOR_PHONE);
+				ActivityCompat.requestPermissions(this, permissions, FyjpAuthorityUtil.AUTHOR_PHONE);
 			}
 		}
 	}
@@ -164,7 +164,7 @@ public class FyjpAboutActivity extends FyjpBaseActivity implements OnClickListen
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		switch (requestCode) {
-			case AuthorityUtil.AUTHOR_PHONE:
+			case FyjpAuthorityUtil.AUTHOR_PHONE:
 				if (grantResults.length > 0) {
 					boolean isAllGranted = true;//是否全部授权
 					for (int gResult : grantResults) {

@@ -8,6 +8,6 @@
         android:id="@+id/imageView"
         android:layout_width="8dip"
         android:layout_height="8dip"
-        android:src="@drawable/iv_unselect" />
+        android:src="@drawable/fyjp_icon_unselected" />
 
 </LinearLayout>

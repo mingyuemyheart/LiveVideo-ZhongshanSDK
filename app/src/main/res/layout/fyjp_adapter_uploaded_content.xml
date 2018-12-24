@@ -14,7 +14,7 @@
         android:layout_width="35dip"
         android:layout_height="35dip"
         android:layout_centerInParent="true"
-        android:src="@drawable/iv_video_logo"
+        android:src="@drawable/fyjp_icon_play_logo"
         android:visibility="invisible" />
 
 </RelativeLayout>

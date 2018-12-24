@@ -58,11 +58,11 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.hf.live.R;
-import com.hf.live.adapter.ShawnCameraAdapter;
-import com.hf.live.common.CONST;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.util.AuthorityUtil;
-import com.hf.live.util.CommonUtil;
+import com.hf.live.adapter.FyjpCameraAdapter;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.util.FyjpCommonUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -92,14 +92,14 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 	private boolean isRecorderOrCamera = true;//true为录像，false为拍照
 	private SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA);
 	private boolean isFull = false;//判断gridview是否够9张
-	private ShawnCameraAdapter mAdapter = null;
-	private List<PhotoDto> mList = new ArrayList<>();
+	private FyjpCameraAdapter mAdapter = null;
+	private List<FyjpPhotoDto> mList = new ArrayList<>();
 	private int displayW = 0;//屏幕宽
 	private int displayH = 0;//屏幕高
 	private int degree = 0;//保存的图片要旋转的角度
 	private OrientationEventListener orienListener = null;//屏幕旋转方向监听器
 	private RelativeLayout reToUp,reToDown;
-	private int miss = CONST.TIME;//时间计数
+	private int miss = FyjpCONST.TIME;//时间计数
 	private TimeThread timeThread = null;
 	private String pro = "", city = "", dis = "", street = "";
 	
@@ -130,7 +130,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
-		camera.setDisplayOrientation(CommonUtil.setCameraDisplayOrientation(this, curCameraId, camera));
+		camera.setDisplayOrientation(FyjpCommonUtil.setCameraDisplayOrientation(this, curCameraId, camera));
 	}
 	
 	/**
@@ -228,9 +228,9 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 					ivDoneLand.setVisibility(View.GONE);
 					completeRecorder();
 
-					List<PhotoDto> selectList = new ArrayList<>();
+					List<FyjpPhotoDto> selectList = new ArrayList<>();
 					selectList.clear();
-					PhotoDto dto = new PhotoDto();
+					FyjpPhotoDto dto = new FyjpPhotoDto();
 					dto.imageName = "";
 					dto.videoUrl = intentVideoUrl;
 					selectList.add(dto);
@@ -241,9 +241,9 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 					intent.putExtras(bundle);
 					startActivity(intent);
 				}else {
-					tvTime.setText(String.valueOf(CommonUtil.formatMiss2(miss)));
+					tvTime.setText(String.valueOf(FyjpCommonUtil.formatMiss2(miss)));
 					miss--;
-					seekBarLeft.setProgress(CONST.TIME-miss);
+					seekBarLeft.setProgress(FyjpCONST.TIME-miss);
 					seekBarRight.setProgress(miss);
 				}
 				break;
@@ -303,7 +303,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 			timeThread.cancel();
 			timeThread = null;
 		}
-		miss = CONST.TIME;
+		miss = FyjpCONST.TIME;
 	}
 	
 	/**
@@ -381,7 +381,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 	private void loadGridViewData() {
 		mList.clear();
 		for (int i = 0; i < 9; i++) {
-			PhotoDto dto = new PhotoDto();
+			FyjpPhotoDto dto = new FyjpPhotoDto();
 			dto.state = false;
 			dto.workstype = "imgs";
 			mList.add(dto);
@@ -394,7 +394,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 	private void initGridView() {
 		loadGridViewData();
 		mGridViewLand = findViewById(R.id.gridViewLand);
-		mAdapter = new ShawnCameraAdapter(mContext, mList);
+		mAdapter = new FyjpCameraAdapter(mContext, mList);
 		mGridViewLand.setAdapter(mAdapter);
 	}
 	
@@ -439,7 +439,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 		} catch (IOException e) {
 			e.printStackTrace();
 		}  
-        camera.setDisplayOrientation(CommonUtil.setCameraDisplayOrientation(this, curCameraId, camera));
+        camera.setDisplayOrientation(FyjpCommonUtil.setCameraDisplayOrientation(this, curCameraId, camera));
         
         Camera.Parameters parameters = camera.getParameters();
         
@@ -500,7 +500,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 		}
 		mRecorder.reset();
 		mRecorder.setCamera(camera);
-		mRecorder.setOrientationHint(CommonUtil.setCameraVideoOrientation(this, curCameraId, camera));//对保存后的视频设置正确方向
+		mRecorder.setOrientationHint(FyjpCommonUtil.setCameraVideoOrientation(this, curCameraId, camera));//对保存后的视频设置正确方向
 		mRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);// 视频源
 		mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC); // 录音源为麦克风
 		mRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_720P));
@@ -572,14 +572,14 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 					matrix.preRotate(degree);
 					bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
-					File files = new File(CONST.PICTURE_ADDR);
+					File files = new File(FyjpCONST.PICTURE_ADDR);
 					if (!files.exists()) {
 						files.mkdirs();
 					}
 					String fileName = sdf1.format(System.currentTimeMillis());
-				    File file = new File(CONST.PICTURE_ADDR, fileName + ".jpg");
+				    File file = new File(FyjpCONST.PICTURE_ADDR, fileName + ".jpg");
 					//保存图片信息
-					CommonUtil.saveVideoInfo(mContext, fileName, "imgs", pro, city, dis, street);
+					FyjpCommonUtil.saveVideoInfo(mContext, fileName, "imgs", pro, city, dis, street);
 
 					try {
 						asynCompressBitmap(bitmap, file);  
@@ -593,10 +593,10 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 								isFull = true;
 							}
 							if (mList.get(i).isState() == false) {
-								PhotoDto dto = new PhotoDto();
+								FyjpPhotoDto dto = new FyjpPhotoDto();
 							    dto.setState(true);
 								dto.setWorkstype("imgs");
-							    dto.imgUrl = CONST.PICTURE_ADDR + fileName + ".jpg";
+							    dto.imgUrl = FyjpCONST.PICTURE_ADDR + fileName + ".jpg";
 							    mList.set(i, dto);
 							    break;
 							}
@@ -694,17 +694,17 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 		}, 5000);
         releaseMediaRecorder();
 		initMediaRecorder();
-		File files = new File(CONST.VIDEO_ADDR);
+		File files = new File(FyjpCONST.VIDEO_ADDR);
 		if (!files.exists()) {
 			files.mkdirs();
 		}
 		videoFileName = sdf1.format(System.currentTimeMillis());
-		intentVideoUrl = files.getPath() + File.separator + videoFileName + CONST.VIDEOTYPE;
+		intentVideoUrl = files.getPath() + File.separator + videoFileName + FyjpCONST.VIDEOTYPE;
 		mRecorder.setOutputFile(intentVideoUrl);// 保存路径
 		camera.unlock();
 
 		//保存视频信息
-		CommonUtil.saveVideoInfo(mContext, videoFileName, "video", pro, city, dis, street);
+		FyjpCommonUtil.saveVideoInfo(mContext, videoFileName, "video", pro, city, dis, street);
 
 		try {
 			mRecorder.prepare();
@@ -723,13 +723,13 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 	 * @param videoUrl
 	 */
 	private void compressThumbnail(String fileName, String videoUrl) {
-		Bitmap thumbBitmap = CommonUtil.getVideoThumbnail(videoUrl, displayW/4, displayW/4, MediaStore.Images.Thumbnails.MINI_KIND);
-		File thumbnails = new File(CONST.THUMBNAIL_ADDR);
+		Bitmap thumbBitmap = FyjpCommonUtil.getVideoThumbnail(videoUrl, displayW/4, displayW/4, MediaStore.Images.Thumbnails.MINI_KIND);
+		File thumbnails = new File(FyjpCONST.THUMBNAIL_ADDR);
 		if (!thumbnails.exists()) {
 			thumbnails.mkdirs();
 		}
 
-		File thumbnailFile = new File(CONST.THUMBNAIL_ADDR, fileName + ".jpg");
+		File thumbnailFile = new File(FyjpCONST.THUMBNAIL_ADDR, fileName + ".jpg");
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(thumbnailFile);
@@ -784,7 +784,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 			intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
 			uri = Uri.fromFile(new File(intentVideoUrl));
 //			intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_DIR");
-//			uri = Uri.fromFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + CONST.VIDEO_ADDR));
+//			uri = Uri.fromFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + FyjpCONST.VIDEO_ADDR));
 		}else {
 			intent = new Intent(Intent.ACTION_MEDIA_MOUNTED);
 			uri = Uri.parse("file://"+ Environment.getExternalStorageDirectory());
@@ -805,7 +805,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 				mRecorder.release();
 			}
 			
-			ivStartLand.setBackgroundResource(R.drawable.iv_start);
+			ivStartLand.setBackgroundResource(R.drawable.fyjp_icon_start);
 			ivChangeLand.setVisibility(View.VISIBLE);
 			ivSwitcherLand.setVisibility(View.VISIBLE);
 			cancelTime();
@@ -819,7 +819,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 	 */
 	@SuppressWarnings("unchecked")
 	private void completeTakePhoto() {
-		List<PhotoDto> selectList = new ArrayList<>();
+		List<FyjpPhotoDto> selectList = new ArrayList<>();
 		for (int i = 0; i < mList.size(); i++) {
 			if (mList.get(i).isState()) {
 				selectList.add(mList.get(i));//把所有数据加载到照片墙list里
@@ -882,7 +882,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 			if (isRecording) {
 				completeRecorder();
 			}else {
-				ivStartLand.setBackgroundResource(R.drawable.iv_stop);
+				ivStartLand.setBackgroundResource(R.drawable.fyjp_icon_stop);
 				ivChangeLand.setVisibility(View.GONE);
 				ivDoneLand.setVisibility(View.VISIBLE);
 				ivSwitcherLand.setVisibility(View.GONE);
@@ -906,14 +906,14 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 		} else if (i == R.id.ivChangeLand) {
 			if (isRecorderOrCamera) {
 				isRecorderOrCamera = false;
-				ivChangeLand.setImageResource(R.drawable.iv_shexiang);
+				ivChangeLand.setImageResource(R.drawable.fyjp_icon_shexiang);
 				mGridViewLand.setVisibility(View.VISIBLE);
 				tvTime.setVisibility(View.GONE);
 				seekBarLeft.setVisibility(View.GONE);
 				seekBarRight.setVisibility(View.GONE);
 			} else {
 				isRecorderOrCamera = true;
-				ivChangeLand.setImageResource(R.drawable.iv_paizhao);
+				ivChangeLand.setImageResource(R.drawable.fyjp_icon_paizhao);
 				mGridViewLand.setVisibility(View.GONE);
 				tvTime.setVisibility(View.VISIBLE);
 				seekBarLeft.setVisibility(View.VISIBLE);
@@ -928,10 +928,10 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 				if (flashMode != null) {
 					if (flashMode.equals(Parameters.FLASH_MODE_OFF)) {
 						parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
-						ivFlash.setImageResource(R.drawable.iv_flash_on);
+						ivFlash.setImageResource(R.drawable.fyjp_icon_flash_on);
 					} else {
 						parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
-						ivFlash.setImageResource(R.drawable.iv_flash_off);
+						ivFlash.setImageResource(R.drawable.fyjp_icon_flash_off);
 					}
 				}
 				camera.setParameters(parameters);
@@ -960,7 +960,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 						ivDoneLand.setVisibility(View.GONE);
 						completeRecorder();
 
-						PhotoDto data = new PhotoDto();
+						FyjpPhotoDto data = new FyjpPhotoDto();
 						data.setWorkstype("video");
 						data.setWorkTime(sdf1.format(System.currentTimeMillis()));
 						data.setVideoUrl(intentVideoUrl);
@@ -973,7 +973,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 					}
 				} else {
 					ivDoneLand.setVisibility(View.GONE);
-					PhotoDto data = new PhotoDto();
+					FyjpPhotoDto data = new FyjpPhotoDto();
 					data.setWorkstype("video");
 					data.setWorkTime(sdf1.format(System.currentTimeMillis()));
 					data.setVideoUrl(intentVideoUrl);
@@ -1066,7 +1066,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 				init();
 			}else {
 				String[] permissions = deniedList.toArray(new String[deniedList.size()]);//将list转成数组
-				ActivityCompat.requestPermissions(this, permissions, AuthorityUtil.AUTHOR_LOCATION);
+				ActivityCompat.requestPermissions(this, permissions, FyjpAuthorityUtil.AUTHOR_LOCATION);
 			}
 		}
 	}
@@ -1074,7 +1074,7 @@ public class FyjpCameraActivity extends Activity implements SurfaceHolder.Callba
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-		if (requestCode == AuthorityUtil.AUTHOR_LOCATION) {
+		if (requestCode == FyjpAuthorityUtil.AUTHOR_LOCATION) {
 			if (grantResults.length > 0) {
 				boolean isAllGranted = true;//是否全部授权
 				for (int gResult : grantResults) {

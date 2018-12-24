@@ -17,11 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.adapter.ShawnMsgAdapter;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.util.OkHttpUtil;
+import com.hf.live.adapter.FyjpMsgAdapter;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.util.FyjpOkHttpUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,8 +44,8 @@ import okhttp3.Response;
 public class FyjpMsgActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
-	private ShawnMsgAdapter mAdapter;
-	private List<PhotoDto> dataList = new ArrayList<>();
+	private FyjpMsgAdapter mAdapter;
+	private List<FyjpPhotoDto> dataList = new ArrayList<>();
 	private int page = 1;
 
 	@Override
@@ -75,12 +75,12 @@ public class FyjpMsgActivity extends FyjpBaseActivity implements OnClickListener
 	 */
 	private void initListView() {
 		ListView mListView = findViewById(R.id.listView);
-		mAdapter = new ShawnMsgAdapter(mContext, dataList);
+		mAdapter = new FyjpMsgAdapter(mContext, dataList);
 		mListView.setAdapter(mAdapter);
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				PhotoDto dto = dataList.get(arg2);
+				FyjpPhotoDto dto = dataList.get(arg2);
 				Intent intent = new Intent();
 				if (dto.getWorkstype().equals("imgs")) {
 					intent.setClass(mContext, FyjpOnlinePictureActivity.class);
@@ -113,15 +113,15 @@ public class FyjpMsgActivity extends FyjpBaseActivity implements OnClickListener
 	private void OkHttpNews() {
 		final String url = "http://channellive2.tianqi.cn/weather/message/newmessage";
 		FormBody.Builder builder = new FormBody.Builder();
-		builder.add("token", MyApplication.TOKEN);
+		builder.add("token", FyjpApplication.TOKEN);
 		builder.add("page", page+"");
 		builder.add("pagesize", "50");
-		builder.add("appid", CONST.APPID);
+		builder.add("appid", FyjpCONST.APPID);
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -144,7 +144,7 @@ public class FyjpMsgActivity extends FyjpBaseActivity implements OnClickListener
 													JSONArray array = object.getJSONArray("info");
 													for (int i = 0; i < array.length(); i++) {
 														JSONObject obj = array.getJSONObject(i);
-														PhotoDto dto = new PhotoDto();
+														FyjpPhotoDto dto = new FyjpPhotoDto();
 														if (!obj.isNull("username")) {
 															dto.userName = obj.getString("username");
 														}

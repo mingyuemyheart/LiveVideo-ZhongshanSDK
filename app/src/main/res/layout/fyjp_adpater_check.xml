@@ -70,7 +70,7 @@
                     android:layout_width="35dip"
                     android:layout_height="35dip"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/iv_video_logo"
+                    android:src="@drawable/fyjp_icon_play_logo"
                     android:visibility="invisible" />
             </RelativeLayout>
 
@@ -88,7 +88,7 @@
                         android:layout_width="13dip"
                         android:layout_height="13dip"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/iv_location_blue" />
+                        android:src="@drawable/fyjp_icon_location_blue" />
 
                     <TextView
                         android:id="@+id/tvAddress"
@@ -177,7 +177,7 @@
                             android:layout_width="13dip"
                             android:layout_height="13dip"
                             android:layout_marginEnd="2dip"
-                            android:src="@drawable/iv_unlike" />
+                            android:src="@drawable/fyjp_icon_unlike" />
 
                         <TextView
                             android:id="@+id/tvPraise"
@@ -200,7 +200,7 @@
                             android:layout_width="15dip"
                             android:layout_height="15dip"
                             android:layout_marginEnd="2dip"
-                            android:src="@drawable/iv_reply" />
+                            android:src="@drawable/fyjp_icon_reply" />
 
                         <TextView
                             android:id="@+id/tvComment"

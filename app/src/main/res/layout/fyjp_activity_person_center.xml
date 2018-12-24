@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shawn_bg_main"
+    android:background="@drawable/fyjp_bg_main"
     android:orientation="vertical" >
 
     <include
@@ -19,14 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <com.hf.live.view.CircleImageView
+            <com.hf.live.view.FyjpCircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/ivPortrait"
                 android:layout_width="100dip"
                 android:layout_height="100dip"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dip"
-                android:src="@drawable/iv_portrait"
+                android:src="@drawable/fyjp_icon_portrait"
                 app:civ_border_color="#d9e0ef"
                 app:civ_border_width="1dp" />
 
@@ -52,7 +52,7 @@
                     android:id="@+id/llMyVideo"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:background="@drawable/shawn_selector_item"
+                    android:background="@drawable/fyjp_selector_item"
                     android:gravity="center_vertical"
                     android:paddingLeft="15dip"
                     android:paddingRight="15dip" >
@@ -60,7 +60,7 @@
                     <ImageView
                         android:layout_width="20dip"
                         android:layout_height="20dip"
-                        android:src="@drawable/iv_my_video" />
+                        android:src="@drawable/fyjp_icon_setting_video" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -74,7 +74,7 @@
                     <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
-                        android:src="@drawable/iv_arrow" />
+                        android:src="@drawable/fyjp_icon_arrow" />
                 </LinearLayout>
 
                 <TextView
@@ -86,7 +86,7 @@
                     android:id="@+id/llMyMsg"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:background="@drawable/shawn_selector_item"
+                    android:background="@drawable/fyjp_selector_item"
                     android:gravity="center_vertical"
                     android:paddingLeft="15dip"
                     android:paddingRight="15dip" >
@@ -94,7 +94,7 @@
                     <ImageView
                         android:layout_width="20dip"
                         android:layout_height="20dip"
-                        android:src="@drawable/iv_my_msg" />
+                        android:src="@drawable/fyjp_icon_setting_msg" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -116,7 +116,7 @@
                             android:layout_width="24dip"
                             android:layout_height="24dip"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/iv_msg_bg" />
+                            android:src="@drawable/fyjp_bg_msg" />
 
                         <TextView
                             android:id="@+id/tvNewsCount"
@@ -130,7 +130,7 @@
                     <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
-                        android:src="@drawable/iv_arrow" />
+                        android:src="@drawable/fyjp_icon_arrow" />
                 </LinearLayout>
 
                 <TextView
@@ -142,7 +142,7 @@
                     android:id="@+id/llCheck"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shawn_selector_item"
+                    android:background="@drawable/fyjp_selector_item"
                     android:orientation="vertical"
                     android:visibility="gone" >
 
@@ -156,7 +156,7 @@
                         <ImageView
                             android:layout_width="20dip"
                             android:layout_height="20dip"
-                            android:src="@drawable/iv_my_check" />
+                            android:src="@drawable/fyjp_icon_setting_check" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -170,7 +170,7 @@
                         <ImageView
                             android:layout_width="15dip"
                             android:layout_height="15dip"
-                            android:src="@drawable/iv_arrow" />
+                            android:src="@drawable/fyjp_icon_arrow" />
                     </LinearLayout>
 
                     <TextView
@@ -183,7 +183,7 @@
                     android:id="@+id/llMySetting"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:background="@drawable/shawn_selector_item"
+                    android:background="@drawable/fyjp_selector_item"
                     android:gravity="center_vertical"
                     android:paddingLeft="15dip"
                     android:paddingRight="15dip" >
@@ -191,7 +191,7 @@
                     <ImageView
                         android:layout_width="20dip"
                         android:layout_height="20dip"
-                        android:src="@drawable/iv_my_setting" />
+                        android:src="@drawable/fyjp_icon_setting" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -205,7 +205,7 @@
                     <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
-                        android:src="@drawable/iv_arrow" />
+                        android:src="@drawable/fyjp_icon_arrow" />
                 </LinearLayout>
 
                 <TextView
@@ -217,7 +217,7 @@
                     android:id="@+id/llMyAbout"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:background="@drawable/shawn_selector_item"
+                    android:background="@drawable/fyjp_selector_item"
                     android:gravity="center_vertical"
                     android:paddingLeft="15dip"
                     android:paddingRight="15dip" >
@@ -225,7 +225,7 @@
                     <ImageView
                         android:layout_width="20dip"
                         android:layout_height="20dip"
-                        android:src="@drawable/iv_my_about" />
+                        android:src="@drawable/fyjp_icon_setting_about" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -239,7 +239,7 @@
                     <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
-                        android:src="@drawable/iv_arrow" />
+                        android:src="@drawable/fyjp_icon_arrow" />
                 </LinearLayout>
 
                 <TextView
@@ -251,7 +251,7 @@
                     android:id="@+id/llResponse"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:background="@drawable/shawn_selector_item"
+                    android:background="@drawable/fyjp_selector_item"
                     android:gravity="center_vertical"
                     android:paddingLeft="15dip"
                     android:paddingRight="15dip" >
@@ -259,7 +259,7 @@
                     <ImageView
                         android:layout_width="20dip"
                         android:layout_height="20dip"
-                        android:src="@drawable/iv_my_response" />
+                        android:src="@drawable/fyjp_icon_setting_response" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -273,7 +273,7 @@
                     <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
-                        android:src="@drawable/iv_arrow" />
+                        android:src="@drawable/fyjp_icon_arrow" />
                 </LinearLayout>
 
                 <TextView

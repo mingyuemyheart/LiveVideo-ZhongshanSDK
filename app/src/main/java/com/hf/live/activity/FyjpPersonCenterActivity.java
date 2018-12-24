@@ -12,10 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.util.OkHttpUtil;
-import com.hf.live.view.CircleImageView;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.util.FyjpOkHttpUtil;
+import com.hf.live.view.FyjpCircleImageView;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -36,7 +36,7 @@ import okhttp3.Response;
 public class FyjpPersonCenterActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
-	private CircleImageView ivPortrait;//头像
+	private FyjpCircleImageView ivPortrait;//头像
 	private TextView tvUserName,tvNewsCount;
 	private LinearLayout llCheck;//视频审核
 	private RelativeLayout reNewsCount;
@@ -45,7 +45,7 @@ public class FyjpPersonCenterActivity extends FyjpBaseActivity implements OnClic
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fyjp_activity_person_center);
-		MyApplication.addDestoryActivity(FyjpPersonCenterActivity.this, "FyjpPersonCenterActivity");
+		FyjpApplication.addDestoryActivity(FyjpPersonCenterActivity.this, "FyjpPersonCenterActivity");
 		mContext = this;
 		initWidget();
 	}
@@ -80,13 +80,13 @@ public class FyjpPersonCenterActivity extends FyjpBaseActivity implements OnClic
 	}
 	
 	private void refreshUserInfo() {
-		if (!TextUtils.isEmpty(MyApplication.PHOTO)) {
-			Picasso.get().load(MyApplication.PHOTO).into(ivPortrait);
+		if (!TextUtils.isEmpty(FyjpApplication.PHOTO)) {
+			Picasso.get().load(FyjpApplication.PHOTO).into(ivPortrait);
 		}
-		if (!TextUtils.isEmpty(MyApplication.OLDUSERNAME)) {
-			tvUserName.setText(MyApplication.OLDUSERNAME);
+		if (!TextUtils.isEmpty(FyjpApplication.OLDUSERNAME)) {
+			tvUserName.setText(FyjpApplication.OLDUSERNAME);
 		}
-		if (TextUtils.equals(MyApplication.GROUPID, "100")) {
+		if (TextUtils.equals(FyjpApplication.GROUPID, "100")) {
 			llCheck.setVisibility(View.VISIBLE);
 		}else {
 			llCheck.setVisibility(View.GONE);
@@ -102,13 +102,13 @@ public class FyjpPersonCenterActivity extends FyjpBaseActivity implements OnClic
 	private void OkHttpNewsCount() {
 		final String url = "http://channellive2.tianqi.cn/weather/message/newcount";
 		FormBody.Builder builder = new FormBody.Builder();
-		builder.add("token", MyApplication.TOKEN);
-		builder.add("appid", CONST.APPID);
+		builder.add("token", FyjpApplication.TOKEN);
+		builder.add("appid", FyjpCONST.APPID);
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shawn_selector_item"
+    android:background="@drawable/fyjp_selector_item"
     android:orientation="vertical"
     android:padding="5dp" >
 
@@ -63,7 +63,7 @@
             android:layout_width="30dip"
             android:layout_height="20dip"
             android:layout_marginStart="10dip"
-            android:background="@drawable/score_bg"
+            android:background="@drawable/fyjp_bg_score"
             android:gravity="center"
             android:textColor="@color/text_color1"
             android:textSize="12dip" />
@@ -92,7 +92,7 @@
                 android:layout_width="35dip"
                 android:layout_height="35dip"
                 android:layout_centerInParent="true"
-                android:src="@drawable/iv_video_logo"
+                android:src="@drawable/fyjp_icon_play_logo"
                 android:visibility="invisible" />
         </RelativeLayout>
 
@@ -110,7 +110,7 @@
                     android:id="@+id/ivLocation"
                     android:layout_width="13dip"
                     android:layout_height="13dip"
-                    android:src="@drawable/iv_location_blue" />
+                    android:src="@drawable/fyjp_icon_location_blue" />
 
                 <TextView
                     android:id="@+id/tvPosition"

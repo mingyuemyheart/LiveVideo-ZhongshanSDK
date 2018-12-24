@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.hf.live.view.RefreshLayout
+    <com.hf.live.view.FyjpRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,8 +22,8 @@
             android:paddingRight="3dp"
             android:paddingBottom="3dp"
             android:scrollbarStyle="outsideOverlay"
-            android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"/>
+            android:scrollbarThumbVertical="@drawable/fyjp_scrollbar_vertical_thumb"/>
 
-    </com.hf.live.view.RefreshLayout>
+    </com.hf.live.view.FyjpRefreshLayout>
 
 </LinearLayout>

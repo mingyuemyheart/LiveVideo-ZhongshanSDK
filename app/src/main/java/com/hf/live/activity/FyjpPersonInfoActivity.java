@@ -23,11 +23,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hf.live.R;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.util.AuthorityUtil;
-import com.hf.live.util.OkHttpUtil;
-import com.hf.live.view.CircleImageView;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.util.FyjpOkHttpUtil;
+import com.hf.live.view.FyjpCircleImageView;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -51,7 +51,7 @@ import okhttp3.Response;
 public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickListener{
 	
 	private Context mContext;
-	private CircleImageView ivPortrait;
+	private FyjpCircleImageView ivPortrait;
 	private TextView tvNickName,tvMail,tvUnit;
 
 	@Override
@@ -85,23 +85,23 @@ public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickL
 		llUnit.setOnClickListener(this);
 		tvUnit = findViewById(R.id.tvUnit);
 
-		if (!TextUtils.isEmpty(MyApplication.PHOTO)) {
-			Picasso.get().load(MyApplication.PHOTO).into(ivPortrait);
+		if (!TextUtils.isEmpty(FyjpApplication.PHOTO)) {
+			Picasso.get().load(FyjpApplication.PHOTO).into(ivPortrait);
 		}
-		if (!TextUtils.isEmpty(MyApplication.NICKNAME)) {
-			tvNickName.setText(MyApplication.NICKNAME);
+		if (!TextUtils.isEmpty(FyjpApplication.NICKNAME)) {
+			tvNickName.setText(FyjpApplication.NICKNAME);
 		}
-		if (!TextUtils.isEmpty(MyApplication.OLDUSERNAME)) {
-			tvPhone.setText(MyApplication.OLDUSERNAME);
+		if (!TextUtils.isEmpty(FyjpApplication.OLDUSERNAME)) {
+			tvPhone.setText(FyjpApplication.OLDUSERNAME);
 		}
-		if (!TextUtils.isEmpty(MyApplication.MAIL)) {
-			tvMail.setText(MyApplication.MAIL);
+		if (!TextUtils.isEmpty(FyjpApplication.MAIL)) {
+			tvMail.setText(FyjpApplication.MAIL);
 		}
-		if (!TextUtils.isEmpty(MyApplication.POINTS)) {
-			tvScore.setText(MyApplication.POINTS);
+		if (!TextUtils.isEmpty(FyjpApplication.POINTS)) {
+			tvScore.setText(FyjpApplication.POINTS);
 		}
-		if (!TextUtils.isEmpty(MyApplication.UNIT)) {
-			tvUnit.setText(MyApplication.UNIT);
+		if (!TextUtils.isEmpty(FyjpApplication.UNIT)) {
+			tvUnit.setText(FyjpApplication.UNIT);
 		}
 	}
 	
@@ -126,19 +126,19 @@ public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickL
 	 */
 	private void OkHttpPostPortrait() {
 		final String url = "http://channellive2.tianqi.cn/weather/user/update";
-		File file = new File(CONST.PORTRAIT_ADDR);
+		File file = new File(FyjpCONST.PORTRAIT_ADDR);
 		if (!file.exists()) {
 			return;
 		}
 		MultipartBody.Builder builder = new MultipartBody.Builder();
 		builder.setType(MultipartBody.FORM);
-		builder.addFormDataPart("token", MyApplication.TOKEN);
+		builder.addFormDataPart("token", FyjpApplication.TOKEN);
 		builder.addFormDataPart("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -177,21 +177,21 @@ public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickL
 		} else if (i == R.id.llNickName) {
 			Intent intent = new Intent(mContext, FyjpModifyInfoActivity.class);
 			intent.putExtra("title", "昵称");
-			intent.putExtra("content", MyApplication.NICKNAME);
+			intent.putExtra("content", FyjpApplication.NICKNAME);
 			startActivityForResult(intent, 1);
 
 		} else if (i == R.id.llMail) {
 			Intent intent;
 			intent = new Intent(mContext, FyjpModifyInfoActivity.class);
 			intent.putExtra("title", "邮箱");
-			intent.putExtra("content", MyApplication.MAIL);
+			intent.putExtra("content", FyjpApplication.MAIL);
 			startActivityForResult(intent, 2);
 
 		} else if (i == R.id.llUnit) {
 			Intent intent;
 			intent = new Intent(mContext, FyjpModifyInfoActivity.class);
 			intent.putExtra("title", "单位名称");
-			intent.putExtra("content", MyApplication.UNIT);
+			intent.putExtra("content", FyjpApplication.UNIT);
 			startActivityForResult(intent, 3);
 
 		} else {
@@ -225,11 +225,11 @@ public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickL
 				}
 				
 				try {
-					File files = new File(CONST.SDCARD_PATH);
+					File files = new File(FyjpCONST.SDCARD_PATH);
 					if (!files.exists()) {
 						files.mkdirs();
 					}
-					FileOutputStream fos = new FileOutputStream(CONST.PORTRAIT_ADDR);
+					FileOutputStream fos = new FileOutputStream(FyjpCONST.PORTRAIT_ADDR);
 					if (bitmap != null) {
 						bitmap.compress(CompressFormat.PNG, 10, fos);
 						ivPortrait.setImageBitmap(bitmap);
@@ -240,18 +240,18 @@ public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickL
 				}
 				break;
 			case 1:
-				if (!TextUtils.isEmpty(MyApplication.NICKNAME)) {
-					tvNickName.setText(MyApplication.NICKNAME);
+				if (!TextUtils.isEmpty(FyjpApplication.NICKNAME)) {
+					tvNickName.setText(FyjpApplication.NICKNAME);
 				}
 				break;
 			case 2:
-				if (!TextUtils.isEmpty(MyApplication.MAIL)) {
-					tvMail.setText(MyApplication.MAIL);
+				if (!TextUtils.isEmpty(FyjpApplication.MAIL)) {
+					tvMail.setText(FyjpApplication.MAIL);
 				}
 				break;
 			case 3:
-				if (!TextUtils.isEmpty(MyApplication.UNIT)) {
-					tvUnit.setText(MyApplication.UNIT);
+				if (!TextUtils.isEmpty(FyjpApplication.UNIT)) {
+					tvUnit.setText(FyjpApplication.UNIT);
 				}
 				break;
 
@@ -285,7 +285,7 @@ public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickL
                 getAlbum();
             }else {
                 String[] permissions = deniedList.toArray(new String[deniedList.size()]);//将list转成数组
-                ActivityCompat.requestPermissions(this, permissions, AuthorityUtil.AUTHOR_STORAGE);
+                ActivityCompat.requestPermissions(this, permissions, FyjpAuthorityUtil.AUTHOR_STORAGE);
             }
         }
     }
@@ -294,7 +294,7 @@ public class FyjpPersonInfoActivity extends FyjpBaseActivity implements OnClickL
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
-            case AuthorityUtil.AUTHOR_STORAGE:
+            case FyjpAuthorityUtil.AUTHOR_STORAGE:
                 if (grantResults.length > 0) {
                     boolean isAllGranted = true;//是否全部授权
                     for (int gResult : grantResults) {

@@ -17,7 +17,7 @@
         android:padding="2dp"
         android:overScrollMode="never"
         android:scrollbarStyle="outsideOverlay"
-        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarThumbVertical="@drawable/fyjp_scrollbar_vertical_thumb"
         android:stretchMode="columnWidth"
         android:verticalSpacing="2dip" />
 

@@ -9,9 +9,9 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.util.OkHttpUtil;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.util.FyjpOkHttpUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,10 +39,16 @@ public class FyjpWelcomeActivity extends Activity{
 		mContext = this;
 
 		//获取用户信息
-		MyApplication.getUserInfo(mContext);
+		FyjpApplication.getUserInfo(mContext);
 
-		String userName = getIntent().getStringExtra("userName");
-		String passWord = getIntent().getStringExtra("passWord");
+		String userName,passWord;
+		if (getIntent().hasExtra("userName") && getIntent().hasExtra("passWord")) {
+			userName = getIntent().getStringExtra("userName");
+			passWord = getIntent().getStringExtra("passWord");
+		}else {
+			userName = "shawn1";
+			passWord = "123456";
+		}
 		OkHttpLogin(userName, passWord);
 	}
 
@@ -59,12 +65,12 @@ public class FyjpWelcomeActivity extends Activity{
 		FormBody.Builder builder = new FormBody.Builder();
 		builder.add("username", userName);
 		builder.add("passwd", passWord);
-		builder.add("appid", CONST.APPID);
+		builder.add("appid", FyjpCONST.APPID);
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -80,7 +86,7 @@ public class FyjpWelcomeActivity extends Activity{
 								if (!object.isNull("status")) {
 									int status = object.getInt("status");
 									if (status == 1) {//成功
-										MyApplication.USERNAME = userName;
+										FyjpApplication.USERNAME = userName;
 										OkHttpLogin(userName, passWord);
 									}
 								}
@@ -106,7 +112,7 @@ public class FyjpWelcomeActivity extends Activity{
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().url(url).post(body).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().url(url).post(body).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -128,35 +134,35 @@ public class FyjpWelcomeActivity extends Activity{
 												if (!object.isNull("info")) {
 													JSONObject obj = object.getJSONObject("info");
 													if (!obj.isNull("token")) {
-														MyApplication.TOKEN = obj.getString("token");
+														FyjpApplication.TOKEN = obj.getString("token");
 													}
 													if (!obj.isNull("phonenumber")) {
-														MyApplication.USERNAME = obj.getString("phonenumber");
+														FyjpApplication.USERNAME = obj.getString("phonenumber");
 													}
 													if (!obj.isNull("username")) {
-														MyApplication.OLDUSERNAME = obj.getString("username");
+														FyjpApplication.OLDUSERNAME = obj.getString("username");
 													}
 													if (!obj.isNull("nickname")) {
-														MyApplication.NICKNAME = obj.getString("nickname");
+														FyjpApplication.NICKNAME = obj.getString("nickname");
 													}
 													if (!obj.isNull("mail")) {
-														MyApplication.MAIL = obj.getString("mail");
+														FyjpApplication.MAIL = obj.getString("mail");
 													}
 													if (!obj.isNull("department")) {
-														MyApplication.UNIT = obj.getString("department");
+														FyjpApplication.UNIT = obj.getString("department");
 													}
 													if (!obj.isNull("groupid")) {
-														MyApplication.GROUPID = obj.getString("groupid");
+														FyjpApplication.GROUPID = obj.getString("groupid");
 													}
 													if (!obj.isNull("points")) {
-														MyApplication.POINTS = obj.getString("points");
+														FyjpApplication.POINTS = obj.getString("points");
 													}
 													if (!obj.isNull("photo")) {
-														MyApplication.PHOTO = obj.getString("photo");
+														FyjpApplication.PHOTO = obj.getString("photo");
 													}
 
-													MyApplication.saveUserInfo(mContext);
-													MyApplication.getUserInfo(mContext);
+													FyjpApplication.saveUserInfo(mContext);
+													FyjpApplication.getUserInfo(mContext);
 													startActivity(new Intent(mContext, FyjpMainActivity.class));
 													finish();
 												}
@@ -188,17 +194,17 @@ public class FyjpWelcomeActivity extends Activity{
 //	 * 刷新用户信息，主要为了刷新token
 //	 */
 //	private void OkHttpToken(final String userName, final String passWord) {
-//		if (TextUtils.isEmpty(MyApplication.TOKEN)) {
+//		if (TextUtils.isEmpty(FyjpApplication.TOKEN)) {
 //			return;
 //		}
 //		final String url = "http://channellive2.tianqi.cn/Weather/User/getUser2";//刷新token
 //		FormBody.Builder builder = new FormBody.Builder();
-//		builder.add("token", MyApplication.TOKEN);
+//		builder.add("token", FyjpApplication.TOKEN);
 //		final RequestBody body = builder.build();
 //		new Thread(new Runnable() {
 //			@Override
 //			public void run() {
-//				OkHttpUtil.enqueue(new Request.Builder().url(url).post(body).build(), new Callback() {
+//				FyjpOkHttpUtil.enqueue(new Request.Builder().url(url).post(body).build(), new Callback() {
 //					@Override
 //					public void onFailure(Call call, IOException e) {
 //					}
@@ -220,34 +226,34 @@ public class FyjpWelcomeActivity extends Activity{
 //												if (!object.isNull("info")) {
 //													JSONObject obj = object.getJSONObject("info");
 //													if (!obj.isNull("token")) {
-//														MyApplication.TOKEN = obj.getString("token");
+//														FyjpApplication.TOKEN = obj.getString("token");
 //													}
 //													if (!obj.isNull("phonenumber")) {
-//														MyApplication.USERNAME = obj.getString("phonenumber");
+//														FyjpApplication.USERNAME = obj.getString("phonenumber");
 //													}
 //													if (!obj.isNull("username")) {
-//														MyApplication.OLDUSERNAME = obj.getString("username");
+//														FyjpApplication.OLDUSERNAME = obj.getString("username");
 //													}
 //													if (!obj.isNull("nickname")) {
-//														MyApplication.NICKNAME = obj.getString("nickname");
+//														FyjpApplication.NICKNAME = obj.getString("nickname");
 //													}
 //													if (!obj.isNull("mail")) {
-//														MyApplication.MAIL = obj.getString("mail");
+//														FyjpApplication.MAIL = obj.getString("mail");
 //													}
 //													if (!obj.isNull("department")) {
-//														MyApplication.UNIT = obj.getString("department");
+//														FyjpApplication.UNIT = obj.getString("department");
 //													}
 //													if (!obj.isNull("groupid")) {
-//														MyApplication.GROUPID = obj.getString("groupid");
+//														FyjpApplication.GROUPID = obj.getString("groupid");
 //													}
 //													if (!obj.isNull("points")) {
-//														MyApplication.POINTS = obj.getString("points");
+//														FyjpApplication.POINTS = obj.getString("points");
 //													}
 //													if (!obj.isNull("photo")) {
-//														MyApplication.PHOTO = obj.getString("photo");
+//														FyjpApplication.PHOTO = obj.getString("photo");
 //													}
 //
-//													MyApplication.saveUserInfo(mContext);
+//													FyjpApplication.saveUserInfo(mContext);
 //													startActivity(new Intent(mContext, FyjpMainActivity.class));
 //													finish();
 //
@@ -286,12 +292,12 @@ public class FyjpWelcomeActivity extends Activity{
 //			public void loadComplete(Bitmap bitmap) {
 //				FileOutputStream fos;
 //				try {
-//					File files = new File(CONST.SDCARD_PATH);
+//					File files = new File(FyjpCONST.SDCARD_PATH);
 //					if (!files.exists()) {
 //						files.mkdirs();
 //					}
 //
-//					fos = new FileOutputStream(CONST.PORTRAIT_ADDR);
+//					fos = new FileOutputStream(FyjpCONST.PORTRAIT_ADDR);
 //					if (bitmap != null) {
 //						bitmap.compress(CompressFormat.PNG, 100, fos);
 //						if (!bitmap.isRecycled()) {
@@ -330,7 +336,7 @@ public class FyjpWelcomeActivity extends Activity{
 //
 //		@Override
 //		protected Bitmap doInBackground(Void... params) {
-//			Bitmap bitmap = CommonUtil.getHttpBitmap(imgUrl);
+//			Bitmap bitmap = FyjpCommonUtil.getHttpBitmap(imgUrl);
 //			return bitmap;
 //		}
 //

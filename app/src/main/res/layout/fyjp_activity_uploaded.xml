@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shawn_bg_main"
+    android:background="@drawable/fyjp_bg_main"
     android:orientation="vertical" >
 
     <include
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dip"
             android:layout_weight="1"
-            android:background="@drawable/red_bg"
+            android:background="@drawable/fyjp_bg_column_red"
             android:gravity="center" >
 
             <TextView
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dip"
             android:layout_weight="1"
-            android:background="@drawable/white_bg"
+            android:background="@drawable/fyjp_bg_column_white"
             android:gravity="center" >
 
             <TextView
@@ -51,7 +51,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.hf.live.view.MainViewPager
+    <com.hf.live.view.FyjpMainViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

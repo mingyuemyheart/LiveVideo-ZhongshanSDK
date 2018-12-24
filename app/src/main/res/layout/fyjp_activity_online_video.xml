@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shawn_bg_main"
+    android:background="@drawable/fyjp_bg_main"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -28,7 +28,7 @@
             android:id="@+id/reTop"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:background="@drawable/bg_video_top_controller" >
+            android:background="@drawable/fyjp_bg_top_controller" >
 
             <ImageView
                 android:id="@+id/ivBackLand"
@@ -36,7 +36,7 @@
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:padding="7dp"
-                android:src="@drawable/iv_back" />
+                android:src="@drawable/fyjp_icon_back" />
 
             <TextView
                 android:id="@+id/tvPosition"
@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignBottom="@+id/llSurfaceView"
-            android:background="@drawable/bg_video_bottom_controller" >
+            android:background="@drawable/fyjp_bottom_controller" >
 
             <TextView
                 android:id="@+id/tvStartTimeLand"
@@ -88,8 +88,8 @@
                 android:minHeight="2dip"
                 android:progress="0"
                 android:thumbOffset="0dp"
-                android:progressDrawable="@drawable/seekbar_drawable"
-                android:thumb="@drawable/seekbar_thumb" />
+                android:progressDrawable="@drawable/fyjp_seekbar_drawable"
+                android:thumb="@drawable/fyjp_seekbar_thumb" />
 
             <TextView
                 android:id="@+id/tvEndTimeLand"
@@ -111,7 +111,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dip"
                 android:padding="8dp"
-                android:src="@drawable/iv_out_full" />
+                android:src="@drawable/fyjp_icon_expand" />
         </RelativeLayout>
 
         <ImageView
@@ -120,7 +120,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/iv_play" />
+            android:src="@drawable/fyjp_icon_play" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -221,7 +221,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:scrollbarStyle="outsideOverlay"
-        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb" />
+        android:scrollbarThumbVertical="@drawable/fyjp_scrollbar_vertical_thumb" />
 
     </LinearLayout>
 
@@ -249,7 +249,7 @@
             android:layout_height="25dip"
             android:layout_centerVertical="true"
             android:layout_marginStart="50dp"
-            android:src="@drawable/iv_reply" />
+            android:src="@drawable/fyjp_icon_reply" />
 
         <ImageView
             android:id="@+id/ivPraise"
@@ -258,7 +258,7 @@
             android:layout_marginEnd="50dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/iv_unlike" />
+            android:src="@drawable/fyjp_icon_unlike" />
     </RelativeLayout>
 
     <LinearLayout
@@ -276,7 +276,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/corner_edittext_transparent"
+            android:background="@drawable/fyjp_corner_edittext_transparent"
             android:paddingLeft="5dip"
             android:textColor="@color/black"
             android:textSize="@dimen/level_4" />

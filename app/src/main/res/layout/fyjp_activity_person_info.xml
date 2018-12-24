@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shawn_bg_main"
+    android:background="@drawable/fyjp_bg_main"
     android:orientation="vertical" >
 
     <include
@@ -20,7 +20,7 @@
             android:id="@+id/llPortrait"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shawn_selector_item"
+            android:background="@drawable/fyjp_selector_item"
             android:gravity="center_vertical"
             android:paddingBottom="10dp"
             android:paddingLeft="20dip"
@@ -35,13 +35,13 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/level_4" />
 
-            <com.hf.live.view.CircleImageView
+            <com.hf.live.view.FyjpCircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/ivPortrait"
                 android:layout_width="60dip"
                 android:layout_height="60dip"
                 android:layout_marginEnd="10dip"
-                android:src="@drawable/iv_portrait"
+                android:src="@drawable/fyjp_icon_portrait"
                 app:civ_border_color="#d9e0ef"
                 app:civ_border_width="1dp" />
         </LinearLayout>
@@ -56,7 +56,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/shawn_selector_item"
+            android:background="@drawable/fyjp_selector_item"
             android:gravity="center_vertical"
             android:paddingLeft="20dip"
             android:paddingRight="20dip" >
@@ -88,7 +88,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/shawn_selector_item"
+            android:background="@drawable/fyjp_selector_item"
             android:gravity="center_vertical"
             android:paddingLeft="20dip"
             android:paddingRight="20dip" >
@@ -122,7 +122,7 @@
             android:id="@+id/llNickName"
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/shawn_selector_item"
+            android:background="@drawable/fyjp_selector_item"
             android:gravity="center_vertical"
             android:paddingLeft="20dip"
             android:paddingRight="20dip" >
@@ -146,7 +146,7 @@
             <ImageView
                 android:layout_width="10dip"
                 android:layout_height="18dip"
-                android:src="@drawable/iv_arrow" />
+                android:src="@drawable/fyjp_icon_arrow" />
         </LinearLayout>
 
         <TextView
@@ -160,7 +160,7 @@
             android:id="@+id/llMail"
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/shawn_selector_item"
+            android:background="@drawable/fyjp_selector_item"
             android:gravity="center_vertical"
             android:paddingLeft="20dip"
             android:paddingRight="20dip" >
@@ -184,7 +184,7 @@
             <ImageView
                 android:layout_width="10dip"
                 android:layout_height="18dip"
-                android:src="@drawable/iv_arrow" />
+                android:src="@drawable/fyjp_icon_arrow" />
         </LinearLayout>
 
         <TextView
@@ -198,7 +198,7 @@
             android:id="@+id/llUnit"
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/shawn_selector_item"
+            android:background="@drawable/fyjp_selector_item"
             android:gravity="center_vertical"
             android:paddingLeft="20dip"
             android:paddingRight="20dip" >
@@ -222,7 +222,7 @@
             <ImageView
                 android:layout_width="10dip"
                 android:layout_height="18dip"
-                android:src="@drawable/iv_arrow" />
+                android:src="@drawable/fyjp_icon_arrow" />
         </LinearLayout>
     </LinearLayout>
 

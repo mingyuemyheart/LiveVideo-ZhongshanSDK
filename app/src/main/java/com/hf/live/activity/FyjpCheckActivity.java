@@ -32,13 +32,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.adapter.ShawnCheckAdapter;
-import com.hf.live.common.CONST;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.fragment.ShawnCheckFragment;
-import com.hf.live.util.CommonUtil;
-import com.hf.live.util.OkHttpUtil;
-import com.hf.live.view.MainViewPager;
+import com.hf.live.adapter.FyjpCheckAdapter;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.fragment.FyjpShawnCheckFragment;
+import com.hf.live.util.FyjpCommonUtil;
+import com.hf.live.util.FyjpOkHttpUtil;
+import com.hf.live.view.FyjpMainViewPager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,9 +71,9 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 	private ImageView ivSearch;//搜索按钮
 	private EditText etSearch;
 	private ListView searchListView;
-	private ShawnCheckAdapter searchAdapter;
-	private List<PhotoDto> searchList = new ArrayList<>();
-	private MainViewPager viewPager;
+	private FyjpCheckAdapter searchAdapter;
+	private List<FyjpPhotoDto> searchList = new ArrayList<>();
+	private FyjpMainViewPager viewPager;
 	private List<Fragment> fragments = new ArrayList<>();
 	private ProgressBar progressBar;
 
@@ -223,7 +223,7 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 	 */
 	private void initViewPager() {
 		for (int i = 0; i < 2; i++) {
-			Fragment fragment = new ShawnCheckFragment();
+			Fragment fragment = new FyjpShawnCheckFragment();
 			Bundle bundle = new Bundle();
 			if (i == 0) {
 				bundle.putString("order", "");
@@ -245,13 +245,13 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 		@Override
 		public void onPageSelected(int arg0) {
 			if (arg0 == 0) {
-				llUploadYes.setBackgroundResource(R.drawable.red_bg);
-				llUploadNo.setBackgroundResource(R.drawable.white_bg);
+				llUploadYes.setBackgroundResource(R.drawable.fyjp_bg_column_red);
+				llUploadNo.setBackgroundResource(R.drawable.fyjp_bg_column_white);
 				tvUploadYes.setTextColor(getResources().getColor(R.color.text_color1));
 				tvUploadNo.setTextColor(getResources().getColor(R.color.black));
 			}else if (arg0 == 1) {
-				llUploadYes.setBackgroundResource(R.drawable.white_bg);
-				llUploadNo.setBackgroundResource(R.drawable.red_bg);
+				llUploadYes.setBackgroundResource(R.drawable.fyjp_bg_column_white);
+				llUploadNo.setBackgroundResource(R.drawable.fyjp_bg_column_red);
 				tvUploadYes.setTextColor(getResources().getColor(R.color.black));
 				tvUploadNo.setTextColor(getResources().getColor(R.color.text_color1));
 			}
@@ -339,12 +339,12 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 	 */
 	private void initSearchListView() {
 		searchListView = findViewById(R.id.searchListView);
-		searchAdapter = new ShawnCheckAdapter(mContext, searchList);
+		searchAdapter = new FyjpCheckAdapter(mContext, searchList);
 		searchListView.setAdapter(searchAdapter);
 		searchListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				PhotoDto dto = searchList.get(arg2);
+				FyjpPhotoDto dto = searchList.get(arg2);
 				Intent intent = new Intent();
 				if (dto.getWorkstype().equals("imgs")) {
 					intent.setClass(mContext, FyjpOnlinePictureActivity.class);
@@ -380,7 +380,7 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 		FormBody.Builder builder = new FormBody.Builder();
 		builder.add("page", page+"");
 		builder.add("pagesize", "20");
-		builder.add("appid", CONST.APPID);
+		builder.add("appid", FyjpCONST.APPID);
 		if (!TextUtils.isEmpty(order)) {
 			builder.add("order", order);
 		}
@@ -391,7 +391,7 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -414,7 +414,7 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 													JSONArray array = object.getJSONArray("info");
 													for (int i = 0; i < array.length(); i++) {
 														JSONObject obj = array.getJSONObject(i);
-														PhotoDto dto = new PhotoDto();
+														FyjpPhotoDto dto = new FyjpPhotoDto();
 														if (!obj.isNull("uid")) {
 															dto.uid = obj.getString("uid");
 														}
@@ -584,7 +584,7 @@ public class FyjpCheckActivity extends FyjpBaseActivity implements OnClickListen
 			startAnimation(false);
 
 		} else if (i == R.id.tvCancel) {
-			CommonUtil.hideInputSoft(etSearch, mContext);
+			FyjpCommonUtil.hideInputSoft(etSearch, mContext);
 			startAnimation(true);
 
 		} else {

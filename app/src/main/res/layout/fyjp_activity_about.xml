@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shawn_bg_main"
+    android:background="@drawable/fyjp_bg_main"
     android:orientation="vertical" >
 
     <include
@@ -27,7 +27,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/iv_logo" />
+                android:src="@drawable/fyjp_icon_logo" />
 
             <TextView
                 android:id="@+id/tvName"

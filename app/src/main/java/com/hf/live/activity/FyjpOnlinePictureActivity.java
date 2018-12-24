@@ -30,16 +30,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.adapter.MyViewPagerAdapter;
-import com.hf.live.adapter.ShawnCommentAdapter;
-import com.hf.live.adapter.ShawnOnlinePictureAdapter;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.util.CommonUtil;
-import com.hf.live.util.EmojiMapUtil;
-import com.hf.live.util.OkHttpUtil;
-import com.hf.live.view.PhotoView;
+import com.hf.live.adapter.FyjpMyViewPagerAdapter;
+import com.hf.live.adapter.FyjpCommentAdapter;
+import com.hf.live.adapter.FyjpOnlinePictureAdapter;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.util.FyjpCommonUtil;
+import com.hf.live.util.FyjpEmojiMapUtil;
+import com.hf.live.util.FyjpOkHttpUtil;
+import com.hf.live.view.FyjpPhotoView;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -69,11 +69,11 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 	private ImageView[] ivTips = null;//装载点的数组
 	private ViewGroup viewGroup = null;
 	private RelativeLayout rePager = null;
-	private PhotoDto data = null;
+	private FyjpPhotoDto data = null;
 	private List<String> urlList = new ArrayList<>();//存放图片的list
 	
-	private ShawnCommentAdapter mAdapter = null;
-	private List<PhotoDto> mList = new ArrayList<>();
+	private FyjpCommentAdapter mAdapter = null;
+	private List<FyjpPhotoDto> mList = new ArrayList<>();
 	private boolean praiseState = false;//点赞状态
 	private LinearLayout llListView,llSubmit;
 	private TextView tvCommentCount = null;//评论次数
@@ -130,10 +130,10 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 				SharedPreferences sharedPreferences = getSharedPreferences(data.getVideoId(), Context.MODE_PRIVATE);
 				if (sharedPreferences.getBoolean("praiseState", false)) {
 					praiseState = true;
-					ivPraise.setImageResource(R.drawable.iv_like);
+					ivPraise.setImageResource(R.drawable.fyjp_icon_like);
 				}else {
 					praiseState = false;
-					ivPraise.setImageResource(R.drawable.iv_unlike);
+					ivPraise.setImageResource(R.drawable.fyjp_icon_unlike);
 				}
 
 				//获取评论列表
@@ -147,7 +147,7 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 	 */
 	private void initGridView() {
 		mGridView = findViewById(R.id.gridView);
-		ShawnOnlinePictureAdapter gridAdapter = new ShawnOnlinePictureAdapter(mContext, urlList);
+		FyjpOnlinePictureAdapter gridAdapter = new FyjpOnlinePictureAdapter(mContext, urlList);
 		mGridView.setAdapter(gridAdapter);
 		mGridView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -182,9 +182,9 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 			imageView.setLayoutParams(new LayoutParams(5, 5));  
 			ivTips[i] = imageView;  
 			if(i == 0){  
-				ivTips[i].setBackgroundResource(R.drawable.point_white);  
+				ivTips[i].setBackgroundResource(R.drawable.fyjp_point_white);
 			}else{  
-				ivTips[i].setBackgroundResource(R.drawable.point_gray);  
+				ivTips[i].setBackgroundResource(R.drawable.fyjp_point_gray);
 			}  
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));  
 			layoutParams.leftMargin = 10;  
@@ -193,22 +193,22 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 		}
 		
 		mViewPager = findViewById(R.id.viewPager);
-		MyViewPagerAdapter pagerAdapter = new MyViewPagerAdapter(imageArray);
+		FyjpMyViewPagerAdapter pagerAdapter = new FyjpMyViewPagerAdapter(imageArray);
 		mViewPager.setAdapter(pagerAdapter);
 		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 			@Override
 			public void onPageSelected(int arg0) {
 				for (int i = 0; i < urlList.size(); i++) {
 					if(i == arg0){  
-						ivTips[i].setBackgroundResource(R.drawable.point_white);  
+						ivTips[i].setBackgroundResource(R.drawable.fyjp_point_white);
 					}else{  
-						ivTips[i].setBackgroundResource(R.drawable.point_gray);  
+						ivTips[i].setBackgroundResource(R.drawable.fyjp_point_gray);
 					} 
 					
 					View childAt = mViewPager.getChildAt(i);
                     try {
-                        if (childAt != null && childAt instanceof PhotoView) {
-                        	PhotoView  photoView = (PhotoView) childAt;//得到viewPager里面的页面
+                        if (childAt != null && childAt instanceof FyjpPhotoView) {
+                        	FyjpPhotoView photoView = (FyjpPhotoView) childAt;//得到viewPager里面的页面
                         	PhotoViewAttacher mAttacher = new PhotoViewAttacher(photoView);//把得到的photoView放到这个负责变形的类当中
                             mAttacher.getDisplayMatrix().reset();//得到这个页面的显示状态，然后重置为默认状态
                         }
@@ -231,7 +231,7 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 	 */
 	private void initListView() {
 		ListView mListView = findViewById(R.id.listView);
-		mAdapter = new ShawnCommentAdapter(mContext, mList);
+		mAdapter = new FyjpCommentAdapter(mContext, mList);
 		mListView.setAdapter(mAdapter);
 	}
 
@@ -244,12 +244,12 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 		builder.add("wid", data.getVideoId());
 		builder.add("page", "1");
 		builder.add("pagesize", "1000");
-		builder.add("appid", CONST.APPID);
+		builder.add("appid", FyjpCONST.APPID);
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -277,7 +277,7 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 													mList.clear();
 													for (int i = 0; i < array.length(); i++) {
 														JSONObject obj = array.getJSONObject(i);
-														PhotoDto dto = new PhotoDto();
+														FyjpPhotoDto dto = new FyjpPhotoDto();
 														if (!obj.isNull("create_time")) {
 															dto.createTime = obj.getString("create_time");
 														}
@@ -285,7 +285,7 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 															dto.userName = obj.getString("username");
 														}
 														if (!obj.isNull("comment")) {
-															dto.comment = EmojiMapUtil.replaceCheatSheetEmojis(obj.getString("comment"));
+															dto.comment = FyjpEmojiMapUtil.replaceCheatSheetEmojis(obj.getString("comment"));
 														}
 														if (!obj.isNull("photo")) {
 															dto.portraitUrl = obj.getString("photo");
@@ -327,14 +327,14 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 	private void OkHttpSubmitComment() {
 		final String url = "http://channellive2.tianqi.cn/weather/comment/savecomment";
 		FormBody.Builder builder = new FormBody.Builder();
-		builder.add("token", MyApplication.TOKEN);
+		builder.add("token", FyjpApplication.TOKEN);
 		builder.add("wid", data.videoId);
-		builder.add("comment", EmojiMapUtil.replaceUnicodeEmojis(etComment.getText().toString()));
+		builder.add("comment", FyjpEmojiMapUtil.replaceUnicodeEmojis(etComment.getText().toString()));
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -383,7 +383,7 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if (etComment != null) {
-			CommonUtil.hideInputSoft(etComment, mContext);
+			FyjpCommonUtil.hideInputSoft(etComment, mContext);
 		}
 		if (llSubmit != null) {
 			llSubmit.setVisibility(View.GONE);
@@ -397,13 +397,13 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 	private void OkHttpPraise() {
 		final String url = "http://channellive2.tianqi.cn/weather/work/praise";
 		FormBody.Builder builder = new FormBody.Builder();
-		builder.add("token", MyApplication.TOKEN);
+		builder.add("token", FyjpApplication.TOKEN);
 		builder.add("id", data.videoId);
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -427,7 +427,7 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 												Editor editor = sharedPreferences.edit();
 												editor.putBoolean("praiseState", true);
 												editor.apply();
-												ivPraise.setImageResource(R.drawable.iv_like);
+												ivPraise.setImageResource(R.drawable.fyjp_icon_like);
 											}else {
 												//失败
 												if (!object.isNull("msg")) {
@@ -525,12 +525,12 @@ public class FyjpOnlinePictureActivity extends FyjpBaseActivity implements OnCli
 
 		} else if (i == R.id.tvSubmit) {
 			if (!TextUtils.isEmpty(etComment.getText().toString())) {
-				CommonUtil.hideInputSoft(etComment, mContext);
+				FyjpCommonUtil.hideInputSoft(etComment, mContext);
 				OkHttpSubmitComment();
 			}
 
 		} else if (i == R.id.ivComment) {
-			if (MyApplication.TOKEN != null) {
+			if (FyjpApplication.TOKEN != null) {
 				if (llSubmit.getVisibility() == View.GONE) {
 					commentAnimation(false, llSubmit);
 					llSubmit.setVisibility(View.VISIBLE);

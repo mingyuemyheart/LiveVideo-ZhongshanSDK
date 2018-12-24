@@ -55,16 +55,16 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
 import com.hf.live.R;
-import com.hf.live.adapter.ShawnEventTypeAdapter;
-import com.hf.live.adapter.ShawnWeatherTypeAdapter;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.dto.UploadVideoDto;
-import com.hf.live.util.AuthorityUtil;
-import com.hf.live.util.CommonUtil;
-import com.hf.live.util.HttpMultipartPost;
-import com.hf.live.util.HttpMultipartPost.AsynLoadCompleteListener;
+import com.hf.live.adapter.FyjpEventTypeAdapter;
+import com.hf.live.adapter.FyjpWeatherTypeAdapter;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.dto.FyjpUploadDto;
+import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.util.FyjpCommonUtil;
+import com.hf.live.util.FyjpHttpMultipartPost;
+import com.hf.live.util.FyjpHttpMultipartPost.AsynLoadCompleteListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -117,11 +117,11 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	private ImageView ivInFull = null;//全屏按钮
 	private RelativeLayout reTop,reBottom;//屏幕上方区域
 	
-	private ShawnWeatherTypeAdapter adapter1 = null;
-	private List<UploadVideoDto> list1 = new ArrayList<>();
+	private FyjpWeatherTypeAdapter adapter1 = null;
+	private List<FyjpUploadDto> list1 = new ArrayList<>();
 	private String weatherType = "";//天气类型
-	private ShawnEventTypeAdapter adapter2 = null;
-	private List<UploadVideoDto> list2 = new ArrayList<>();
+	private FyjpEventTypeAdapter adapter2 = null;
+	private List<FyjpUploadDto> list2 = new ArrayList<>();
 	private String eventType = "";//事件类型
 	
 	@Override
@@ -208,7 +208,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 		startLocation();
 		
 		if (getIntent().hasExtra("data")) {
-			PhotoDto data = getIntent().getExtras().getParcelable("data");
+			FyjpPhotoDto data = getIntent().getExtras().getParcelable("data");
 			if (data != null) {
 //				tvPositon.setText(data.getLocation());
 				try {
@@ -276,44 +276,44 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	private void initGridView1() {
 		//wt01雪，wt02雨，wt03冰雹，wt04晴，wt05霾，wt06大风，wt07沙尘
 		list1.clear();
-		UploadVideoDto dto = new UploadVideoDto();
+		FyjpUploadDto dto = new FyjpUploadDto();
 		dto.weatherType = "wt01";
 		dto.weatherName = "雪";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt02";
 		dto.weatherName = "雨";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt03";
 		dto.weatherName = "冰雹";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt04";
 		dto.weatherName = "晴";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt05";
 		dto.weatherName = "霾";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt06";
 		dto.weatherName = "大风";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt07";
 		dto.weatherName = "沙尘";
 		dto.isSelected = false;
 		list1.add(dto);
 
 		GridView gridView1 = findViewById(R.id.gridView1);
-		adapter1 = new ShawnWeatherTypeAdapter(mContext, list1);
+		adapter1 = new FyjpWeatherTypeAdapter(mContext, list1);
 		gridView1.setAdapter(adapter1);
 		gridView1.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -339,26 +339,26 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	private void initGridView2() {
 		//et01自然灾害，et02事故灾害，et03公共卫生，et04社会安全
 		list2.clear();
-		UploadVideoDto dto = new UploadVideoDto();
+		FyjpUploadDto dto = new FyjpUploadDto();
 		dto.eventType = "et01";
 		dto.eventName = "自然灾害";
 		dto.isSelected = false;
-		list2.add(dto);dto = new UploadVideoDto();
+		list2.add(dto);dto = new FyjpUploadDto();
 		dto.eventType = "et02";
 		dto.eventName = "事故灾害";
 		dto.isSelected = false;
-		list2.add(dto);dto = new UploadVideoDto();
+		list2.add(dto);dto = new FyjpUploadDto();
 		dto.eventType = "et03";
 		dto.eventName = "公共卫生";
 		dto.isSelected = false;
-		list2.add(dto);dto = new UploadVideoDto();
+		list2.add(dto);dto = new FyjpUploadDto();
 		dto.eventType = "et04";
 		dto.eventName = "社会安全";
 		dto.isSelected = false;
 		list2.add(dto);
 
 		GridView gridView2 = findViewById(R.id.gridView2);
-		adapter2 = new ShawnEventTypeAdapter(mContext, list2);
+		adapter2 = new FyjpEventTypeAdapter(mContext, list2);
 		gridView2.setAdapter(adapter2);
 		gridView2.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -383,14 +383,14 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	 * @param workTime
 	 */
 	private void getThumbnail(String videoUrl, String workTime) {
-		Bitmap thumbBitmap = CommonUtil.getVideoThumbnail(videoUrl, displayW/4, displayW/4, Thumbnails.MINI_KIND);
-		File files = new File(CONST.THUMBNAIL_ADDR);
+		Bitmap thumbBitmap = FyjpCommonUtil.getVideoThumbnail(videoUrl, displayW/4, displayW/4, Thumbnails.MINI_KIND);
+		File files = new File(FyjpCONST.THUMBNAIL_ADDR);
 		if (!files.exists()) {
 			files.mkdirs();
 		}
 
 		workTime = workTime.substring(0, workTime.length()-4);
-	    thumbnailFile = new File(CONST.THUMBNAIL_ADDR, workTime + ".jpg");
+	    thumbnailFile = new File(FyjpCONST.THUMBNAIL_ADDR, workTime + ".jpg");
 	    FileOutputStream fos;
 	    try {
 			fos = new FileOutputStream(thumbnailFile);
@@ -409,7 +409,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	 */
 	private void showPort() {
 		scrollView.setVisibility(View.VISIBLE);
-		ivInFull.setImageResource(R.drawable.iv_out_full);
+		ivInFull.setImageResource(R.drawable.fyjp_icon_expand);
 		changeVideo(mPlayer.getVideoWidth(), mPlayer.getVideoHeight());
 	}
 	
@@ -418,7 +418,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	 */
 	private void showLand() {
 		scrollView.setVisibility(View.GONE);
-		ivInFull.setImageResource(R.drawable.iv_in_full);
+		ivInFull.setImageResource(R.drawable.fyjp_icon_collose);
 		changeVideo(mPlayer.getVideoWidth(), mPlayer.getVideoHeight());
 	}
 	
@@ -442,7 +442,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 		surfaceHolder.addCallback(this);
 		surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		
-		surfaceView.setLayoutParams(new LinearLayout.LayoutParams(CONST.standarH, CONST.standarH));
+		surfaceView.setLayoutParams(new LinearLayout.LayoutParams(FyjpCONST.standarH, FyjpCONST.standarH));
 	}
 	
 	@Override
@@ -495,11 +495,11 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	private void startPlayVideo() {
 		if (mPlayer != null) {
 			if (mPlayer.isPlaying()) {
-				ivPlayLand.setImageResource(R.drawable.iv_play);
+				ivPlayLand.setImageResource(R.drawable.fyjp_icon_play);
 				mPlayer.pause();
 				releaseTimer();
 			}else {
-				ivPlayLand.setImageResource(R.drawable.iv_pause);
+				ivPlayLand.setImageResource(R.drawable.fyjp_icon_pause);
 				mPlayer.start();
 				
 				timer = new Timer();
@@ -572,10 +572,10 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	private void changeVideo(int videoW, int videoH) {
 		if (surfaceView != null) {
 			if (mPlayer != null) {
-				int standarH = CONST.standarH;//自定义高度
+				int standarH = FyjpCONST.standarH;//自定义高度
 				if (configuration != null) {
 					if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-						standarH = CONST.standarH;
+						standarH = FyjpCONST.standarH;
 					}else if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 						standarH = displayW;
 					}
@@ -608,7 +608,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	@Override
 	public void onCompletion(MediaPlayer player) {
 		releaseTimer();
-		ivPlayLand.setImageResource(R.drawable.iv_play);
+		ivPlayLand.setImageResource(R.drawable.fyjp_icon_play);
 		seekBarLand.setProgress(0);
 		tvStartTimeLand.setText("00:00");
 		handler.removeMessages(HANDLER_VISIBILITY);
@@ -681,11 +681,11 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 				
 				//发送广播，刷新已上传、未上传
 				Intent intent = new Intent();
-				intent.setAction(CONST.REFRESH_UPLOAD);
+				intent.setAction(FyjpCONST.REFRESH_UPLOAD);
 				sendBroadcast(intent);
 				
 				Intent intent2 = new Intent();
-				intent2.setAction(CONST.REFRESH_NOTUPLOAD);
+				intent2.setAction(FyjpCONST.REFRESH_NOTUPLOAD);
 				sendBroadcast(intent2);
 				
 				setResult(RESULT_OK);
@@ -722,7 +722,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 		File videoFile = new File(videoUrl);
 		String fileName = videoFile.getName().substring(0, videoFile.getName().length()-4);
     	try {
-			HttpMultipartPost httpPost = new HttpMultipartPost(mContext, url, new AsynLoadCompleteListener() {
+			FyjpHttpMultipartPost httpPost = new FyjpHttpMultipartPost(mContext, url, new AsynLoadCompleteListener() {
 				@Override
 				public void loadComplete(String result) {
 					if (result.equals(getString(R.string.file_too_big))) {
@@ -744,11 +744,11 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 								
 								//发送广播，刷新已上传、未上传
 								Intent intent = new Intent();
-								intent.setAction(CONST.REFRESH_UPLOAD);
+								intent.setAction(FyjpCONST.REFRESH_UPLOAD);
 								sendBroadcast(intent);
 								
 								Intent intent2 = new Intent();
-								intent2.setAction(CONST.REFRESH_NOTUPLOAD);
+								intent2.setAction(FyjpCONST.REFRESH_NOTUPLOAD);
 								sendBroadcast(intent2);
 
 								uploadSuccessDialog();
@@ -761,7 +761,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 					}
 				}
 			});
-        	httpPost.setToken(MyApplication.TOKEN);
+        	httpPost.setToken(FyjpApplication.TOKEN);
         	httpPost.setWorkstype("video");
         	httpPost.setLocation(tvPositon.getText().toString());
         	httpPost.setTitle(etTitle.getText().toString());
@@ -907,7 +907,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 				init();
 			}else {
 				String[] permissions = deniedList.toArray(new String[deniedList.size()]);//将list转成数组
-				ActivityCompat.requestPermissions(this, permissions, AuthorityUtil.AUTHOR_LOCATION);
+				ActivityCompat.requestPermissions(this, permissions, FyjpAuthorityUtil.AUTHOR_LOCATION);
 			}
 		}
 	}
@@ -916,7 +916,7 @@ OnVideoSizeChangedListener, OnCompletionListener, OnClickListener, AMapLocationL
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		switch (requestCode) {
-			case AuthorityUtil.AUTHOR_LOCATION:
+			case FyjpAuthorityUtil.AUTHOR_LOCATION:
 				if (grantResults.length > 0) {
 					boolean isAllGranted = true;//是否全部授权
 					for (int gResult : grantResults) {

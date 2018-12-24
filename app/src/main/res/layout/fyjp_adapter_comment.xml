@@ -4,14 +4,14 @@
     android:layout_height="wrap_content"
     android:padding="5dip">
 
-    <com.hf.live.view.CircleImageView
+    <com.hf.live.view.FyjpCircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivPortrait"
         android:layout_width="35dip"
         android:layout_height="35dip"
         app:civ_border_color="#d9e0ef"
         app:civ_border_width="1dp"
-        android:src="@drawable/iv_portrait"/>
+        android:src="@drawable/fyjp_icon_portrait"/>
 
     <LinearLayout
         android:layout_width="match_parent"

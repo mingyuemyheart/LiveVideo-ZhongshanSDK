@@ -33,11 +33,11 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
 import com.hf.live.R;
-import com.hf.live.common.MyApplication;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.util.AuthorityUtil;
-import com.hf.live.util.GetPathFromUri4kitkat;
-import com.hf.live.util.WeatherUtil;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.util.FyjpGetPathFromUri4kitkat;
+import com.hf.live.util.FyjpWeatherUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,7 +70,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fyjp_activity_main);
-		MyApplication.addDestoryActivity(this, "FyjpMainActivity");
+		FyjpApplication.addDestoryActivity(this, "FyjpMainActivity");
 		mContext = this;
 		initWidget();
 	}
@@ -163,41 +163,41 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 																	}
 																}
 																if (!object.isNull("l5")) {
-																	String weatherCode = WeatherUtil.lastValue(object.getString("l5"));
+																	String weatherCode = FyjpWeatherUtil.lastValue(object.getString("l5"));
 																	if (weatherCode != null) {
-																		Drawable drawable = getResources().getDrawable(R.drawable.phenomenon_drawable);
+																		Drawable drawable = getResources().getDrawable(R.drawable.fyjp_phenomenon_drawable);
 																		drawable.setLevel(Integer.valueOf(weatherCode));
 																		ivPhenomenon.setImageDrawable(drawable);
-																		tvPhenomenon.setText(getString(WeatherUtil.getWeatherId(Integer.valueOf(weatherCode))));
+																		tvPhenomenon.setText(getString(FyjpWeatherUtil.getWeatherId(Integer.valueOf(weatherCode))));
 																	}
 																}
 																if (!object.isNull("l1")) {
-																	String factTemp = WeatherUtil.lastValue(object.getString("l1"));
+																	String factTemp = FyjpWeatherUtil.lastValue(object.getString("l1"));
 																	if (factTemp != null) {
 																		tvFactTemp.setText(getString(R.string.current) + factTemp + getString(R.string.unit_c));
 																	}
 																}
 																if (!object.isNull("l12")) {
-																	String bodyTemp = WeatherUtil.lastValue(object.getString("l12"));
+																	String bodyTemp = FyjpWeatherUtil.lastValue(object.getString("l12"));
 																	if (bodyTemp != null) {
 																		tvBodyTemp.setText(getString(R.string.body) + bodyTemp + getString(R.string.unit_c));
 																	}
 																}
 																if (!object.isNull("l4") && !object.isNull("l3")) {
-																	String windDir = WeatherUtil.lastValue(object.getString("l4"));
-																	String windForce = WeatherUtil.lastValue(object.getString("l3"));
+																	String windDir = FyjpWeatherUtil.lastValue(object.getString("l4"));
+																	String windForce = FyjpWeatherUtil.lastValue(object.getString("l3"));
 																	if (windDir != null && windForce != null) {
-																		tvWind.setText(getString(WeatherUtil.getWindDirection(Integer.valueOf(windDir))) + WeatherUtil.getFactWindForce(Integer.valueOf(windForce)));
+																		tvWind.setText(getString(FyjpWeatherUtil.getWindDirection(Integer.valueOf(windDir))) + FyjpWeatherUtil.getFactWindForce(Integer.valueOf(windForce)));
 																	}
 																}
 																if (!object.isNull("l2")) {
-																	String humidity = WeatherUtil.lastValue(object.getString("l2"));
+																	String humidity = FyjpWeatherUtil.lastValue(object.getString("l2"));
 																	if (humidity != null) {
 																		tvHumitidy.setText(getString(R.string.humitidy) + humidity + getString(R.string.unit_percent));
 																	}
 																}
 																if (!object.isNull("l6")) {
-																	String rainFall = WeatherUtil.lastValue(object.getString("l6"));
+																	String rainFall = FyjpWeatherUtil.lastValue(object.getString("l6"));
 																	if (rainFall != null) {
 																		tvRainFall.setText(getString(R.string.rainfall) + rainFall + getString(R.string.mm));
 																	}
@@ -205,7 +205,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 
 																JSONObject airObj = content.getAirQualityInfo();//空气质量信息
 																if (!airObj.isNull("k3")) {
-																	String airQua = WeatherUtil.lastValue(airObj.getString("k3"));
+																	String airQua = FyjpWeatherUtil.lastValue(airObj.getString("k3"));
 																	if (airQua != null) {
 																		tvAQI.setText(getString(R.string.aqi) + airQua);
 																	}
@@ -264,7 +264,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 		reCamera.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if (MyApplication.TOKEN != null) {
+				if (FyjpApplication.TOKEN != null) {
 					startActivity(new Intent(mContext, FyjpCameraActivity.class));
 				}
 				dialog.dismiss();
@@ -274,7 +274,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 		reSelect.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if (MyApplication.TOKEN != null) {
+				if (FyjpApplication.TOKEN != null) {
 					Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 				    intent.setType("video/*");
 				    startActivityForResult(intent, 1);
@@ -286,7 +286,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 		rePicture.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if (MyApplication.TOKEN != null) {
+				if (FyjpApplication.TOKEN != null) {
 					Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 				    intent.setType("image/*");
 				    startActivityForResult(intent, 3);
@@ -314,7 +314,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 	public void onClick(View v) {
 		int i = v.getId();
 		if (i == R.id.ivRefresh) {
-			Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.round_animation);
+			Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fyjp_anim_round);
 			ivRefresh.startAnimation(animation);
 			startLocation();
 
@@ -348,14 +348,14 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 			case 1:
 				if (data != null) {
 					Uri uri = data.getData();
-					String filePath = GetPathFromUri4kitkat.getPath(mContext, uri);
+					String filePath = FyjpGetPathFromUri4kitkat.getPath(mContext, uri);
 					if (filePath == null) {
 						Toast.makeText(mContext, getString(R.string.not_found_video), Toast.LENGTH_SHORT).show();    
 						return;
 					}
 					
 					//跳转到预览视频界面
-					PhotoDto dto = new PhotoDto();
+					FyjpPhotoDto dto = new FyjpPhotoDto();
 					dto.setLocation(getString(R.string.no_location));
 					dto.setWorkTime(sdf2.format(System.currentTimeMillis()));
 					dto.setVideoUrl(filePath);
@@ -377,15 +377,15 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 			case 3:
 				if (data != null) {
 					Uri uri = data.getData();
-					String filePath = GetPathFromUri4kitkat.getPath(mContext, uri);
+					String filePath = FyjpGetPathFromUri4kitkat.getPath(mContext, uri);
 					if (filePath == null) {
 						Toast.makeText(mContext, getString(R.string.not_found_pic), Toast.LENGTH_SHORT).show();    
 						return;
 					}
 					
 					//跳转到预览图片界面
-					List<PhotoDto> selectList = new ArrayList<>();
-					PhotoDto dto = new PhotoDto();
+					List<FyjpPhotoDto> selectList = new ArrayList<>();
+					FyjpPhotoDto dto = new FyjpPhotoDto();
 				    dto.setState(true);
 					dto.setWorkstype("imgs");
 				    dto.imgUrl = filePath;
@@ -439,7 +439,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 				startLocation();
 			}else {
 				String[] permissions = deniedList.toArray(new String[deniedList.size()]);//将list转成数组
-				ActivityCompat.requestPermissions(this, permissions, AuthorityUtil.AUTHOR_LOCATION);
+				ActivityCompat.requestPermissions(this, permissions, FyjpAuthorityUtil.AUTHOR_LOCATION);
 			}
 		}
 	}
@@ -448,7 +448,7 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		switch (requestCode) {
-			case AuthorityUtil.AUTHOR_LOCATION:
+			case FyjpAuthorityUtil.AUTHOR_LOCATION:
 				if (grantResults.length > 0) {
 					boolean isAllGranted = true;//是否全部授权
 					for (int gResult : grantResults) {

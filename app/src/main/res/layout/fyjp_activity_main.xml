@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shawn_bg_main"
+    android:background="@drawable/fyjp_bg_main"
     android:orientation="vertical" >
     
     <ImageView
@@ -10,7 +10,7 @@
         android:layout_height="172dip"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dip"
-        android:background="@drawable/iv_six_empty" />
+        android:background="@drawable/fyjp_six_empty" />
 
     <RelativeLayout
         android:id="@+id/reLive"
@@ -25,7 +25,7 @@
             android:id="@+id/ivLive"
             android:layout_width="150dip"
             android:layout_height="172dip"
-            android:background="@drawable/iv_live" />
+            android:background="@drawable/fyjp_icon_live" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:id="@+id/ivCamera"
             android:layout_width="150dip"
             android:layout_height="172dip"
-            android:background="@drawable/iv_camera" />
+            android:background="@drawable/fyjp_icon_camera" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
             android:id="@+id/ivVideo"
             android:layout_width="80dip"
             android:layout_height="92dip"
-            android:background="@drawable/iv_video" />
+            android:background="@drawable/fyjp_icon_video" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
             android:id="@+id/ivMeet"
             android:layout_width="80dp"
             android:layout_height="92dp"
-            android:background="@drawable/iv_person2" />
+            android:background="@drawable/fyjp_icon_person" />
 
         <TextView
             android:id="@+id/tvMeet"
@@ -138,7 +138,7 @@
                 android:layout_width="15dip"
                 android:layout_height="15dip"
                 android:layout_centerVertical="true"
-                android:src="@drawable/iv_location" />
+                android:src="@drawable/fyjp_icon_location" />
 
             <TextView
                 android:id="@+id/tvAddress"
@@ -167,7 +167,7 @@
                 android:layout_height="20dip"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/iv_refresh" />
+                android:src="@drawable/fyjp_icon_refresh" />
         </RelativeLayout>
 
         <TextView
@@ -204,7 +204,7 @@
             <TextView
                 android:layout_width="0.5dip"
                 android:layout_height="match_parent"
-                android:background="@drawable/vertical_line" />
+                android:background="@drawable/fyjp_vertical_line" />
 
             <TextView
                 android:id="@+id/tvFactTemp"
@@ -218,7 +218,7 @@
             <TextView
                 android:layout_width="0.5dip"
                 android:layout_height="match_parent"
-                android:background="@drawable/vertical_line" />
+                android:background="@drawable/fyjp_vertical_line" />
 
             <TextView
                 android:id="@+id/tvBodyTemp"
@@ -250,7 +250,7 @@
                 <ImageView
                     android:layout_width="20dip"
                     android:layout_height="20dip"
-                    android:src="@drawable/iv_wind" />
+                    android:src="@drawable/fyjp_icon_wind" />
 
                 <TextView
                     android:id="@+id/tvWind"
@@ -264,7 +264,7 @@
             <TextView
                 android:layout_width="0.5dip"
                 android:layout_height="match_parent"
-                android:background="@drawable/vertical_line" />
+                android:background="@drawable/fyjp_vertical_line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -275,7 +275,7 @@
                 <ImageView
                     android:layout_width="20dip"
                     android:layout_height="20dip"
-                    android:src="@drawable/iv_humidity" />
+                    android:src="@drawable/fyjp_icon_humidity" />
 
                 <TextView
                     android:id="@+id/tvHumitidy"
@@ -307,7 +307,7 @@
                 <ImageView
                     android:layout_width="20dip"
                     android:layout_height="20dip"
-                    android:src="@drawable/iv_rainfall" />
+                    android:src="@drawable/fyjp_icon_rainfall" />
 
                 <TextView
                     android:id="@+id/tvRainFall"
@@ -321,7 +321,7 @@
             <TextView
                 android:layout_width="0.5dip"
                 android:layout_height="match_parent"
-                android:background="@drawable/vertical_line" />
+                android:background="@drawable/fyjp_vertical_line" />
 
             <TextView
                 android:id="@+id/tvAQI"
@@ -341,6 +341,6 @@
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:indeterminateDrawable="@anim/anim_loading_white" />
+        android:indeterminateDrawable="@anim/fyjp_anim_loading_white" />
     
 </RelativeLayout>

@@ -24,7 +24,7 @@
             android:layout_weight="1"
             android:maxHeight="2dip"
             android:minHeight="2dip"
-            android:progressDrawable="@drawable/seekbar_drawable2"
+            android:progressDrawable="@drawable/fyjp_seekbar_drawable2"
             android:thumb="@null" />
 
         <SeekBar
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:maxHeight="2dip"
             android:minHeight="2dip"
-            android:progressDrawable="@drawable/seekbar_drawable"
+            android:progressDrawable="@drawable/fyjp_seekbar_drawable"
             android:thumb="@null" />
     </LinearLayout>
 
@@ -71,7 +71,7 @@
             android:layout_height="30dip"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dip"
-            android:src="@drawable/iv_switcher" />
+            android:src="@drawable/fyjp_icon_switcher" />
 
         <GridView
             android:id="@+id/gridViewLand"
@@ -107,7 +107,7 @@
             android:layout_marginBottom="10dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/iv_flash_off" />
+            android:src="@drawable/fyjp_icon_flash_off" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -125,7 +125,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dip"
-            android:src="@drawable/iv_live_done"
+            android:src="@drawable/fyjp_icon_live_done"
             android:visibility="gone" />
 
         <ImageView
@@ -135,7 +135,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="10dip"
-            android:background="@drawable/iv_start" />
+            android:background="@drawable/fyjp_icon_start" />
 
         <ImageView
             android:id="@+id/ivChangeLand"
@@ -143,7 +143,7 @@
             android:layout_height="30dip"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dip"
-            android:src="@drawable/iv_paizhao" />
+            android:src="@drawable/fyjp_icon_paizhao" />
     </RelativeLayout>
 
     <LinearLayout

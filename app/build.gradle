@@ -9,9 +9,9 @@ apply plugin: 'com.android.library'
 //5、注释掉高德地图信息
 //6、根目录增加classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5' //用于打包Maven所需文件
 //maven { url 'https://www.jitpack.io' }
+//9、注释掉manifest里icon、lable、theme信息
 //7、执行./gradlew install
 //8、提交代码至github，并更新发布gitpack
-//9、注释掉manifest里icon、lable、theme信息
 
 android {
     compileSdkVersion 27
@@ -25,11 +25,11 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1336
-        versionName "1.3.9"
+        versionName "1.4.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters 'armeabi-v7a', 'armeabi', 'x86', 'x86_64', 'arm64-v8a'
         }
     }
 
@@ -51,7 +51,7 @@ android {
 }
 
 //发布GitHub项目到JitPack
-apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
+//apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
 group='com.github.mingyuemyheart'
 
 // build a jar with source files

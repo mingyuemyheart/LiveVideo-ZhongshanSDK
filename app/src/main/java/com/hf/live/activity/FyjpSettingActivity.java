@@ -10,9 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hf.live.R;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.util.DataCleanManager;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.util.FyjpDataCleanManager;
 
 import java.io.File;
 
@@ -50,8 +50,8 @@ public class FyjpSettingActivity extends FyjpBaseActivity implements OnClickList
 		tvLogout.setOnClickListener(this);
 
 		try {
-			tvLocalSave.setText(DataCleanManager.getLocalSaveSize(mContext));
-			tvLocalCache.setText(DataCleanManager.getCacheSize(mContext));
+			tvLocalSave.setText(FyjpDataCleanManager.getLocalSaveSize(mContext));
+			tvLocalCache.setText(FyjpDataCleanManager.getCacheSize(mContext));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -90,16 +90,16 @@ public class FyjpSettingActivity extends FyjpBaseActivity implements OnClickList
 			@Override
 			public void onClick(View arg0) {
 				if (flag == 0) {
-					DataCleanManager.clearLocalSave(mContext);
+					FyjpDataCleanManager.clearLocalSave(mContext);
 					try {
-						tvLocalSave.setText(DataCleanManager.getLocalSaveSize(mContext));
+						tvLocalSave.setText(FyjpDataCleanManager.getLocalSaveSize(mContext));
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}else {
-					DataCleanManager.clearCache(mContext);
+					FyjpDataCleanManager.clearCache(mContext);
 					try {
-						tvLocalCache.setText(DataCleanManager.getCacheSize(mContext));
+						tvLocalCache.setText(FyjpDataCleanManager.getCacheSize(mContext));
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -137,21 +137,21 @@ public class FyjpSettingActivity extends FyjpBaseActivity implements OnClickList
 			public void onClick(View arg0) {
 				dialog.dismiss();
 				//清除sharedPreferance里保存的用户信息
-				MyApplication.clearUserInfo(mContext);
+				FyjpApplication.clearUserInfo(mContext);
 
 				//删除本地保存的头像
-				File file = new File(CONST.PORTRAIT_ADDR);
+				File file = new File(FyjpCONST.PORTRAIT_ADDR);
 				if (file.exists()) {
 					file.delete();
 				}
 
-				file = new File(CONST.OLD_PORTRAIT_ADDR);
+				file = new File(FyjpCONST.OLD_PORTRAIT_ADDR);
 				if (file.exists()) {
 					file.delete();
 				}
 
-//				MyApplication.destoryActivity("FyjpMainActivity");
-//				MyApplication.destoryActivity("FyjpPersonCenterActivity");
+//				FyjpApplication.destoryActivity("FyjpMainActivity");
+//				FyjpApplication.destoryActivity("FyjpPersonCenterActivity");
 //				startActivity(new Intent(mContext, LoginActivity.class));
 //				finish();
 			}

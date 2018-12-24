@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shawn_bg_main"
+                android:background="@drawable/fyjp_bg_main"
                 android:orientation="vertical">
 
     <include
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dip"
         android:layout_below="@+id/reTitle"
-        android:background="@drawable/shawn_selector_item"
+        android:background="@drawable/fyjp_selector_item"
         android:gravity="center_vertical"
         android:paddingLeft="20dip"
         android:paddingRight="20dip">
@@ -38,7 +38,7 @@
         <ImageView
             android:layout_width="10dip"
             android:layout_height="18dip"
-            android:src="@drawable/iv_arrow"/>
+            android:src="@drawable/fyjp_icon_arrow"/>
     </LinearLayout>
 
     <TextView
@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dip"
         android:layout_below="@+id/divider1"
-        android:background="@drawable/shawn_selector_item"
+        android:background="@drawable/fyjp_selector_item"
         android:gravity="center_vertical"
         android:paddingLeft="20dip"
         android:paddingRight="20dip">
@@ -77,7 +77,7 @@
         <ImageView
             android:layout_width="10dip"
             android:layout_height="18dip"
-            android:src="@drawable/iv_arrow"/>
+            android:src="@drawable/fyjp_icon_arrow"/>
     </LinearLayout>
 
     <TextView
@@ -96,7 +96,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="40dip"
-        android:background="@drawable/selector_login"
+        android:background="@drawable/fyjp_selector_login"
         android:gravity="center"
         android:paddingLeft="10dip"
         android:paddingRight="10dip"

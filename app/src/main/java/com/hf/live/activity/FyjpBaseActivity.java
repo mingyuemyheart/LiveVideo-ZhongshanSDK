@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.hf.live.view.MyDialog;
+import com.hf.live.view.FyjpMyDialog;
 
 public class FyjpBaseActivity extends Activity {
 
 	private Context mContext;
-	private MyDialog mDialog;
+	private FyjpMyDialog mDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class FyjpBaseActivity extends Activity {
 	 */
 	public void showDialog() {
 		if (mDialog == null) {
-			mDialog = new MyDialog(mContext);
+			mDialog = new FyjpMyDialog(mContext);
 		}
 		mDialog.show();
 	}

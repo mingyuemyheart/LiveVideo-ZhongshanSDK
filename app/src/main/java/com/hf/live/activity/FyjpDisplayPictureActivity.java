@@ -31,15 +31,15 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
 import com.hf.live.R;
-import com.hf.live.adapter.ShawnDisplayPictureAdapter;
-import com.hf.live.adapter.ShawnEventTypeAdapter;
-import com.hf.live.adapter.ShawnWeatherTypeAdapter;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.dto.UploadVideoDto;
-import com.hf.live.util.AuthorityUtil;
-import com.hf.live.util.CommonUtil;
+import com.hf.live.adapter.FyjpDisplayPictureAdapter;
+import com.hf.live.adapter.FyjpEventTypeAdapter;
+import com.hf.live.adapter.FyjpWeatherTypeAdapter;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.dto.FyjpUploadDto;
+import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.util.FyjpCommonUtil;
 import com.scene.net.Net;
 
 import net.tsz.afinal.http.AjaxCallBack;
@@ -62,19 +62,19 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 	private Context mContext = null;
 	public TextView tvTitle = null;
 	private GridView mGridView = null;
-	private ShawnDisplayPictureAdapter mAdapter = null;
+	private FyjpDisplayPictureAdapter mAdapter = null;
 	private TextView tvPositon = null;//地址
 	private EditText etTitle = null;//标题
 	private EditText etContent = null;
 	private TextView tvTextCount = null;
 	private SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA);
 	private SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
-	private List<PhotoDto> selectList = new ArrayList<>();
-	private ShawnWeatherTypeAdapter adapter1 = null;
-	private List<UploadVideoDto> list1 = new ArrayList<>();
+	private List<FyjpPhotoDto> selectList = new ArrayList<>();
+	private FyjpWeatherTypeAdapter adapter1 = null;
+	private List<FyjpUploadDto> list1 = new ArrayList<>();
 	private String weatherType = "";//天气类型
-	private ShawnEventTypeAdapter adapter2 = null;
-	private List<UploadVideoDto> list2 = new ArrayList<>();
+	private FyjpEventTypeAdapter adapter2 = null;
+	private List<FyjpUploadDto> list2 = new ArrayList<>();
 	private String eventType = "";//事件类型
 	private int count = 0;
 	private double lat = 0, lng = 0;
@@ -126,7 +126,7 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 		}
 		
 		selectList.clear();
-		selectList.addAll(getIntent().getExtras().<PhotoDto>getParcelableArrayList("selectList"));
+		selectList.addAll(getIntent().getExtras().<FyjpPhotoDto>getParcelableArrayList("selectList"));
 		
 		startLocation();
 	}
@@ -168,9 +168,9 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 		tvTitle.setText(getString(R.string.already_select)+count+getString(R.string.file_count));
 		
 		mGridView = findViewById(R.id.gridView);
-		mAdapter = new ShawnDisplayPictureAdapter(mContext, selectList);
+		mAdapter = new FyjpDisplayPictureAdapter(mContext, selectList);
 		mGridView.setAdapter(mAdapter);
-		CommonUtil.setGridViewHeightBasedOnChildren(mGridView);
+		FyjpCommonUtil.setGridViewHeightBasedOnChildren(mGridView);
 	}
 
 	/**
@@ -200,44 +200,44 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 	private void initGridView1() {
 		//wt01雪，wt02雨，wt03冰雹，wt04晴，wt05霾，wt06大风，wt07沙尘
 		list1.clear();
-		UploadVideoDto dto = new UploadVideoDto();
+		FyjpUploadDto dto = new FyjpUploadDto();
 		dto.weatherType = "wt01";
 		dto.weatherName = "雪";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt02";
 		dto.weatherName = "雨";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt03";
 		dto.weatherName = "冰雹";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt04";
 		dto.weatherName = "晴";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt05";
 		dto.weatherName = "霾";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt06";
 		dto.weatherName = "大风";
 		dto.isSelected = false;
 		list1.add(dto);
-		dto = new UploadVideoDto();
+		dto = new FyjpUploadDto();
 		dto.weatherType = "wt07";
 		dto.weatherName = "沙尘";
 		dto.isSelected = false;
 		list1.add(dto);
 
 		GridView gridView1 = findViewById(R.id.gridView1);
-		adapter1 = new ShawnWeatherTypeAdapter(mContext, list1);
+		adapter1 = new FyjpWeatherTypeAdapter(mContext, list1);
 		gridView1.setAdapter(adapter1);
 		gridView1.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -263,26 +263,26 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 	private void initGridView2() {
 		//et01自然灾害，et02事故灾害，et03公共卫生，et04社会安全
 		list2.clear();
-		UploadVideoDto dto = new UploadVideoDto();
+		FyjpUploadDto dto = new FyjpUploadDto();
 		dto.eventType = "et01";
 		dto.eventName = "自然灾害";
 		dto.isSelected = false;
-		list2.add(dto);dto = new UploadVideoDto();
+		list2.add(dto);dto = new FyjpUploadDto();
 		dto.eventType = "et02";
 		dto.eventName = "事故灾害";
 		dto.isSelected = false;
-		list2.add(dto);dto = new UploadVideoDto();
+		list2.add(dto);dto = new FyjpUploadDto();
 		dto.eventType = "et03";
 		dto.eventName = "公共卫生";
 		dto.isSelected = false;
-		list2.add(dto);dto = new UploadVideoDto();
+		list2.add(dto);dto = new FyjpUploadDto();
 		dto.eventType = "et04";
 		dto.eventName = "社会安全";
 		dto.isSelected = false;
 		list2.add(dto);
 
 		GridView gridView2 = findViewById(R.id.gridView2);
-		adapter2 = new ShawnEventTypeAdapter(mContext, list2);
+		adapter2 = new FyjpEventTypeAdapter(mContext, list2);
 		gridView2.setAdapter(adapter2);
 		gridView2.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -316,10 +316,10 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 		dialog.setContentView(view);
 		dialog.show();
 		
-		final List<PhotoDto> tempList = new ArrayList<PhotoDto>();
+		final List<FyjpPhotoDto> tempList = new ArrayList<FyjpPhotoDto>();
 		tempList.clear();
 		for (int i = 0; i < selectList.size(); i++) {
-			PhotoDto dto = selectList.get(i);
+			FyjpPhotoDto dto = selectList.get(i);
 			if (dto.isSelected) {
 				tempList.add(dto);
 			}
@@ -339,7 +339,7 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 				dialog.dismiss();
 				selectList.removeAll(tempList);
 				mAdapter.notifyDataSetChanged();
-				CommonUtil.setGridViewHeightBasedOnChildren(mGridView);
+				FyjpCommonUtil.setGridViewHeightBasedOnChildren(mGridView);
 				for (int j = 0; j < tempList.size(); j++) {
 					File file = new File(tempList.get(j).imgUrl);
 					if (file.exists()) {
@@ -358,7 +358,7 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 				//发送刷新未上传广播
 //				Toast.makeText(mContext, getString(R.string.delete_all_files), Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent();
-				intent.setAction(CONST.REFRESH_NOTUPLOAD);
+				intent.setAction(FyjpCONST.REFRESH_NOTUPLOAD);
 				sendBroadcast(intent);
 				if (selectList.size() <= 0) {
 					finish();
@@ -401,10 +401,10 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 		dialog.setContentView(view);
 		dialog.show();
 		
-		final List<PhotoDto> tempList = new ArrayList<>();
+		final List<FyjpPhotoDto> tempList = new ArrayList<>();
 		tempList.clear();
 		for (int i = 0; i < selectList.size(); i++) {
-			PhotoDto dto = selectList.get(i);
+			FyjpPhotoDto dto = selectList.get(i);
 			if (dto.isSelected) {
 				tempList.add(dto);
 			}
@@ -434,8 +434,8 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 		showDialog();
 		final String url = "http://channellive2.tianqi.cn/weather/work/Upload";
 		AjaxParams params = new AjaxParams();
-		params.put("appid", CONST.APPID);
-		params.put("token", MyApplication.TOKEN);
+		params.put("appid", FyjpCONST.APPID);
+		params.put("token", FyjpApplication.TOKEN);
 		params.put("workstype", "imgs");
 		params.put("latlon", lat+","+lng);
 		params.put("title", etTitle.getText().toString());
@@ -453,10 +453,10 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 		}
 		params.put("location", location);
 
-		final List<PhotoDto> tempList = new ArrayList<PhotoDto>();
+		final List<FyjpPhotoDto> tempList = new ArrayList<FyjpPhotoDto>();
 		tempList.clear();
 		for (int i = 0; i < selectList.size(); i++) {
-			PhotoDto dto = selectList.get(i);
+			FyjpPhotoDto dto = selectList.get(i);
 			if (dto.isSelected) {
 				tempList.add(dto);
 			}
@@ -481,7 +481,7 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 				cancelDialog();
 				selectList.removeAll(tempList);
 				mAdapter.notifyDataSetChanged();
-				CommonUtil.setGridViewHeightBasedOnChildren(mGridView);
+				FyjpCommonUtil.setGridViewHeightBasedOnChildren(mGridView);
 //				for (int j = 0; j < tempList.size(); j++) {
 //					File file = new File(tempList.get(j).getUrl());
 //					if (file.exists()) {
@@ -499,7 +499,7 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 //				Toast.makeText(mContext, getString(R.string.upload_all_files), Toast.LENGTH_SHORT).show();
 				//发送刷新未上传广播
 				Intent intent = new Intent();
-				intent.setAction(CONST.REFRESH_NOTUPLOAD);
+				intent.setAction(FyjpCONST.REFRESH_NOTUPLOAD);
 				sendBroadcast(intent);
 				if (selectList.size() <= 0) {
 					finish();
@@ -601,7 +601,7 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 				init();
 			}else {
 				String[] permissions = deniedList.toArray(new String[deniedList.size()]);//将list转成数组
-				ActivityCompat.requestPermissions(this, permissions, AuthorityUtil.AUTHOR_LOCATION);
+				ActivityCompat.requestPermissions(this, permissions, FyjpAuthorityUtil.AUTHOR_LOCATION);
 			}
 		}
 	}
@@ -610,7 +610,7 @@ public class FyjpDisplayPictureActivity extends FyjpBaseActivity implements OnCl
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		switch (requestCode) {
-			case AuthorityUtil.AUTHOR_LOCATION:
+			case FyjpAuthorityUtil.AUTHOR_LOCATION:
 				if (grantResults.length > 0) {
 					boolean isAllGranted = true;//是否全部授权
 					for (int gResult : grantResults) {

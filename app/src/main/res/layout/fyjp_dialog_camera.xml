@@ -9,14 +9,14 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/shawn_bg_corner_login"
+        android:background="@drawable/fyjp_bg_corner_login"
         android:orientation="vertical" >
 
         <RelativeLayout
             android:id="@+id/reCamera"
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/selector_top"
+            android:background="@drawable/fyjp_selector_top"
             android:gravity="center_vertical" >
 
             <TextView
@@ -39,7 +39,7 @@
             android:id="@+id/reSelect"
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/shawn_selector_item"
+            android:background="@drawable/fyjp_selector_item"
             android:gravity="center_vertical" >
 
             <TextView
@@ -62,7 +62,7 @@
             android:id="@+id/rePicture"
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:background="@drawable/selector_bottom"
+            android:background="@drawable/fyjp_selector_bottom"
             android:gravity="center_vertical" >
 
             <TextView

@@ -43,13 +43,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hf.live.R;
-import com.hf.live.adapter.ShawnCommentAdapter;
-import com.hf.live.common.CONST;
-import com.hf.live.common.MyApplication;
-import com.hf.live.dto.PhotoDto;
-import com.hf.live.util.CommonUtil;
-import com.hf.live.util.EmojiMapUtil;
-import com.hf.live.util.OkHttpUtil;
+import com.hf.live.adapter.FyjpCommentAdapter;
+import com.hf.live.common.FyjpCONST;
+import com.hf.live.common.FyjpApplication;
+import com.hf.live.dto.FyjpPhotoDto;
+import com.hf.live.util.FyjpCommonUtil;
+import com.hf.live.util.FyjpEmojiMapUtil;
+import com.hf.live.util.FyjpOkHttpUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -84,9 +84,9 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	private Timer timer = null;
 	private int displayW = 0;//屏幕宽
 	private int displayH = 0;//屏幕高
-	private PhotoDto data = null;
-	private ShawnCommentAdapter mAdapter = null;
-	private List<PhotoDto> mList = new ArrayList<>();
+	private FyjpPhotoDto data = null;
+	private FyjpCommentAdapter mAdapter = null;
+	private List<FyjpPhotoDto> mList = new ArrayList<>();
 	private boolean praiseState = false;//点赞状态
 	private Configuration configuration = null;//方向监听器
 	private ProgressBar progressBar = null;
@@ -198,16 +198,16 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 				tvCommentCount.setText(getString(R.string.comment) + "（"+data.getCommentCount()+"）");
 				tvDate.setText(data.getWorkTime());
 
-				String weatherFlag = CommonUtil.getWeatherFlag(data.weatherFlag);
+				String weatherFlag = FyjpCommonUtil.getWeatherFlag(data.weatherFlag);
 				if (!TextUtils.isEmpty(weatherFlag)) {
 					tvWeatherFlag.setText(weatherFlag);
-					tvWeatherFlag.setBackgroundResource(R.drawable.corner_flag);
+					tvWeatherFlag.setBackgroundResource(R.drawable.fyjp_corner_flag);
 					tvWeatherFlag.setVisibility(View.VISIBLE);
 				}
-				String otherFlag = CommonUtil.getWeatherFlag(data.otherFlag);
+				String otherFlag = FyjpCommonUtil.getWeatherFlag(data.otherFlag);
 				if (!TextUtils.isEmpty(otherFlag)) {
 					tvOtherFlag.setText(otherFlag);
-					tvOtherFlag.setBackgroundResource(R.drawable.corner_flag);
+					tvOtherFlag.setBackgroundResource(R.drawable.fyjp_corner_flag);
 					tvOtherFlag.setVisibility(View.VISIBLE);
 				}
 				
@@ -215,10 +215,10 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 				SharedPreferences sharedPreferences = getSharedPreferences(data.getVideoId(), Context.MODE_PRIVATE);
 				if (sharedPreferences.getBoolean("praiseState", false)) {
 					praiseState = true;
-					ivPraise.setImageResource(R.drawable.iv_like);
+					ivPraise.setImageResource(R.drawable.fyjp_icon_like);
 				}else {
 					praiseState = false;
-					ivPraise.setImageResource(R.drawable.iv_unlike);
+					ivPraise.setImageResource(R.drawable.fyjp_icon_unlike);
 				}
 
 				//获取评论列表
@@ -232,7 +232,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	 */
 	private void initListView() {
 		ListView mListView = findViewById(R.id.listView);
-		mAdapter = new ShawnCommentAdapter(mContext, mList);
+		mAdapter = new FyjpCommentAdapter(mContext, mList);
 		mListView.setAdapter(mAdapter);
 	}
 	
@@ -251,7 +251,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	 */
 	private void showPort() {
 		reOperate.setVisibility(View.VISIBLE);
-		ivInFull.setImageResource(R.drawable.iv_out_full);
+		ivInFull.setImageResource(R.drawable.fyjp_icon_expand);
 		changeVideo(mPlayer.getVideoWidth(), mPlayer.getVideoHeight());
 	}
 	
@@ -260,7 +260,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	 */
 	private void showLand() {
 		reOperate.setVisibility(View.GONE);
-		ivInFull.setImageResource(R.drawable.iv_in_full);
+		ivInFull.setImageResource(R.drawable.fyjp_icon_collose);
 		changeVideo(mPlayer.getVideoWidth(), mPlayer.getVideoHeight());
 	}
 	
@@ -278,7 +278,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 		displayW = dm.widthPixels;
 		displayH = dm.heightPixels;
 		
-		surfaceView.setLayoutParams(new LinearLayout.LayoutParams(CONST.standarH, CONST.standarH));
+		surfaceView.setLayoutParams(new LinearLayout.LayoutParams(FyjpCONST.standarH, FyjpCONST.standarH));
 	}
 	
 	@Override
@@ -330,11 +330,11 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	private void startPlayVideo() {
 		if (mPlayer != null) {
 			if (mPlayer.isPlaying()) {
-				ivPlayLand.setImageResource(R.drawable.iv_play);
+				ivPlayLand.setImageResource(R.drawable.fyjp_icon_play);
 				mPlayer.pause();
 				releaseTimer();
 			}else {
-				ivPlayLand.setImageResource(R.drawable.iv_pause);
+				ivPlayLand.setImageResource(R.drawable.fyjp_icon_pause);
 				mPlayer.start();
 				
 				timer = new Timer();
@@ -408,10 +408,10 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	private void changeVideo(int videoW, int videoH) {
 		if (surfaceView != null) {
 			if (mPlayer != null) {
-				int standarH = CONST.standarH;//自定义高度
+				int standarH = FyjpCONST.standarH;//自定义高度
 				if (configuration != null) {
 					if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-						standarH = CONST.standarH;
+						standarH = FyjpCONST.standarH;
 					}else if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 						standarH = displayW;
 					}
@@ -444,7 +444,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	@Override
 	public void onCompletion(MediaPlayer player) {
 		releaseTimer();
-		ivPlayLand.setImageResource(R.drawable.iv_play);
+		ivPlayLand.setImageResource(R.drawable.fyjp_icon_play);
 		seekBarLand.setProgress(0);
 		tvStartTimeLand.setText("00:00");
 		handler.removeMessages(HANDLER_VISIBILITY);
@@ -490,12 +490,12 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 		builder.add("wid", data.getVideoId());
 		builder.add("page", "1");
 		builder.add("pagesize", "1000");
-		builder.add("appid", CONST.APPID);
+		builder.add("appid", FyjpCONST.APPID);
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -523,7 +523,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 													mList.clear();
 													for (int i = 0; i < array.length(); i++) {
 														JSONObject obj = array.getJSONObject(i);
-														PhotoDto dto = new PhotoDto();
+														FyjpPhotoDto dto = new FyjpPhotoDto();
 														if (!obj.isNull("create_time")) {
 															dto.createTime = obj.getString("create_time");
 														}
@@ -531,7 +531,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 															dto.userName = obj.getString("username");
 														}
 														if (!obj.isNull("comment")) {
-															dto.comment = EmojiMapUtil.replaceCheatSheetEmojis(obj.getString("comment"));
+															dto.comment = FyjpEmojiMapUtil.replaceCheatSheetEmojis(obj.getString("comment"));
 														}
 														if (!obj.isNull("photo")) {
 															dto.portraitUrl = obj.getString("photo");
@@ -573,14 +573,14 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	private void OkHttpSubmitComment() {
 		final String url = "http://channellive2.tianqi.cn/weather/comment/savecomment";
 		FormBody.Builder builder = new FormBody.Builder();
-		builder.add("token", MyApplication.TOKEN);
+		builder.add("token", FyjpApplication.TOKEN);
 		builder.add("wid", data.videoId);
-		builder.add("comment", EmojiMapUtil.replaceUnicodeEmojis(etComment.getText().toString()));
+		builder.add("comment", FyjpEmojiMapUtil.replaceUnicodeEmojis(etComment.getText().toString()));
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -629,7 +629,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if (etComment != null) {
-			CommonUtil.hideInputSoft(etComment, mContext);
+			FyjpCommonUtil.hideInputSoft(etComment, mContext);
 		}
 		if (llSubmit != null) {
 			llSubmit.setVisibility(View.GONE);
@@ -643,13 +643,13 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 	private void OkHttpPraise() {
 		final String url = "http://channellive2.tianqi.cn/weather/work/praise";
 		FormBody.Builder builder = new FormBody.Builder();
-		builder.add("token", MyApplication.TOKEN);
+		builder.add("token", FyjpApplication.TOKEN);
 		builder.add("id", data.videoId);
 		final RequestBody body = builder.build();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				OkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
+				FyjpOkHttpUtil.enqueue(new Request.Builder().post(body).url(url).build(), new Callback() {
 					@Override
 					public void onFailure(Call call, IOException e) {
 					}
@@ -673,7 +673,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 												Editor editor = sharedPreferences.edit();
 												editor.putBoolean("praiseState", true);
 												editor.apply();
-												ivPraise.setImageResource(R.drawable.iv_like);
+												ivPraise.setImageResource(R.drawable.fyjp_icon_like);
 											}else {
 												//失败
 												if (!object.isNull("msg")) {
@@ -771,7 +771,7 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 		DownloadManager.Request request = new DownloadManager.Request(uri);
 		// 设置下载路径和文件名
 		String filename = videoUrl.substring(videoUrl.lastIndexOf("/") + 1);//获取文件名称
-		File files = new File(CONST.DOWNLOAD_ADDR);
+		File files = new File(FyjpCONST.DOWNLOAD_ADDR);
 		if (!files.exists()) {
 			files.mkdirs();
 		}
@@ -841,12 +841,12 @@ public class FyjpOnlineVideoActivity extends Activity implements SurfaceHolder.C
 
 		} else if (i == R.id.tvSubmit) {
 			if (!TextUtils.isEmpty(etComment.getText().toString())) {
-				CommonUtil.hideInputSoft(etComment, mContext);
+				FyjpCommonUtil.hideInputSoft(etComment, mContext);
 				OkHttpSubmitComment();
 			}
 
 		} else if (i == R.id.ivComment) {
-			if (MyApplication.TOKEN != null) {
+			if (FyjpApplication.TOKEN != null) {
 				if (llSubmit.getVisibility() == View.GONE) {
 					commentAnimation(false, llSubmit);
 					llSubmit.setVisibility(View.VISIBLE);
