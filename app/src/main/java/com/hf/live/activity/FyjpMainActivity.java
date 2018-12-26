@@ -36,6 +36,7 @@ import com.hf.live.R;
 import com.hf.live.common.FyjpApplication;
 import com.hf.live.dto.FyjpPhotoDto;
 import com.hf.live.util.FyjpAuthorityUtil;
+import com.hf.live.util.FyjpCommonUtil;
 import com.hf.live.util.FyjpGetPathFromUri4kitkat;
 import com.hf.live.util.FyjpWeatherUtil;
 
@@ -51,6 +52,7 @@ import cn.com.weather.api.WeatherAPI;
 import cn.com.weather.beans.Weather;
 import cn.com.weather.constants.Constants.Language;
 import cn.com.weather.listener.AsyncResponseHandler;
+import cn.com.weather.util.CommonUtil;
 
 /**
  * 主界面
@@ -109,16 +111,21 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 	 * 开始定位
 	 */
 	private void startLocation() {
-		AMapLocationClientOption mLocationOption = new AMapLocationClientOption();//初始化定位参数
-		AMapLocationClient mLocationClient = new AMapLocationClient(mContext);//初始化定位
-        mLocationOption.setLocationMode(AMapLocationMode.Hight_Accuracy);//设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
-        mLocationOption.setNeedAddress(true);//设置是否返回地址信息（默认返回地址信息）
-        mLocationOption.setOnceLocation(true);//设置是否只定位一次,默认为false
-        mLocationOption.setMockEnable(false);//设置是否允许模拟位置,默认为false，不允许模拟位置
-        mLocationOption.setInterval(2000);//设置定位间隔,单位毫秒,默认为2000ms
-        mLocationClient.setLocationOption(mLocationOption);//给定位客户端对象设置定位参数
-        mLocationClient.setLocationListener(this);
-        mLocationClient.startLocation();//启动定位
+		if (FyjpCommonUtil.isLocationOpen(mContext)) {
+			AMapLocationClientOption mLocationOption = new AMapLocationClientOption();//初始化定位参数
+			AMapLocationClient mLocationClient = new AMapLocationClient(mContext);//初始化定位
+			mLocationOption.setLocationMode(AMapLocationMode.Hight_Accuracy);//设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
+			mLocationOption.setNeedAddress(true);//设置是否返回地址信息（默认返回地址信息）
+			mLocationOption.setOnceLocation(true);//设置是否只定位一次,默认为false
+			mLocationOption.setMockEnable(false);//设置是否允许模拟位置,默认为false，不允许模拟位置
+			mLocationOption.setInterval(2000);//设置定位间隔,单位毫秒,默认为2000ms
+			mLocationClient.setLocationOption(mLocationOption);//给定位客户端对象设置定位参数
+			mLocationClient.setLocationListener(this);
+			mLocationClient.startLocation();//启动定位
+		}else {
+			tvAddress.setText("中山市");
+			getWeatherInfo(22.519470,113.356614);
+		}
 	}
 
 	@Override
@@ -156,58 +163,62 @@ public class FyjpMainActivity extends FyjpBaseActivity implements AMapLocationLi
 														if (content != null) {
 															try {
 																JSONObject object = content.getWeatherFactInfo();//实况信息
-																if (!object.isNull("l7")) {
-																	String time = object.getString("l7");
-																	if (time != null) {
-																		tvTime.setText(time + getString(R.string.refresh));
+																if (object != null) {
+																	if (!object.isNull("l7")) {
+																		String time = object.getString("l7");
+																		if (time != null) {
+																			tvTime.setText(time + getString(R.string.refresh));
+																		}
 																	}
-																}
-																if (!object.isNull("l5")) {
-																	String weatherCode = FyjpWeatherUtil.lastValue(object.getString("l5"));
-																	if (weatherCode != null) {
-																		Drawable drawable = getResources().getDrawable(R.drawable.fyjp_phenomenon_drawable);
-																		drawable.setLevel(Integer.valueOf(weatherCode));
-																		ivPhenomenon.setImageDrawable(drawable);
-																		tvPhenomenon.setText(getString(FyjpWeatherUtil.getWeatherId(Integer.valueOf(weatherCode))));
+																	if (!object.isNull("l5")) {
+																		String weatherCode = FyjpWeatherUtil.lastValue(object.getString("l5"));
+																		if (weatherCode != null) {
+																			Drawable drawable = getResources().getDrawable(R.drawable.fyjp_phenomenon_drawable);
+																			drawable.setLevel(Integer.valueOf(weatherCode));
+																			ivPhenomenon.setImageDrawable(drawable);
+																			tvPhenomenon.setText(getString(FyjpWeatherUtil.getWeatherId(Integer.valueOf(weatherCode))));
+																		}
 																	}
-																}
-																if (!object.isNull("l1")) {
-																	String factTemp = FyjpWeatherUtil.lastValue(object.getString("l1"));
-																	if (factTemp != null) {
-																		tvFactTemp.setText(getString(R.string.current) + factTemp + getString(R.string.unit_c));
+																	if (!object.isNull("l1")) {
+																		String factTemp = FyjpWeatherUtil.lastValue(object.getString("l1"));
+																		if (factTemp != null) {
+																			tvFactTemp.setText(getString(R.string.current) + factTemp + getString(R.string.unit_c));
+																		}
 																	}
-																}
-																if (!object.isNull("l12")) {
-																	String bodyTemp = FyjpWeatherUtil.lastValue(object.getString("l12"));
-																	if (bodyTemp != null) {
-																		tvBodyTemp.setText(getString(R.string.body) + bodyTemp + getString(R.string.unit_c));
+																	if (!object.isNull("l12")) {
+																		String bodyTemp = FyjpWeatherUtil.lastValue(object.getString("l12"));
+																		if (bodyTemp != null) {
+																			tvBodyTemp.setText(getString(R.string.body) + bodyTemp + getString(R.string.unit_c));
+																		}
 																	}
-																}
-																if (!object.isNull("l4") && !object.isNull("l3")) {
-																	String windDir = FyjpWeatherUtil.lastValue(object.getString("l4"));
-																	String windForce = FyjpWeatherUtil.lastValue(object.getString("l3"));
-																	if (windDir != null && windForce != null) {
-																		tvWind.setText(getString(FyjpWeatherUtil.getWindDirection(Integer.valueOf(windDir))) + FyjpWeatherUtil.getFactWindForce(Integer.valueOf(windForce)));
+																	if (!object.isNull("l4") && !object.isNull("l3")) {
+																		String windDir = FyjpWeatherUtil.lastValue(object.getString("l4"));
+																		String windForce = FyjpWeatherUtil.lastValue(object.getString("l3"));
+																		if (windDir != null && windForce != null) {
+																			tvWind.setText(getString(FyjpWeatherUtil.getWindDirection(Integer.valueOf(windDir))) + FyjpWeatherUtil.getFactWindForce(Integer.valueOf(windForce)));
+																		}
 																	}
-																}
-																if (!object.isNull("l2")) {
-																	String humidity = FyjpWeatherUtil.lastValue(object.getString("l2"));
-																	if (humidity != null) {
-																		tvHumitidy.setText(getString(R.string.humitidy) + humidity + getString(R.string.unit_percent));
+																	if (!object.isNull("l2")) {
+																		String humidity = FyjpWeatherUtil.lastValue(object.getString("l2"));
+																		if (humidity != null) {
+																			tvHumitidy.setText(getString(R.string.humitidy) + humidity + getString(R.string.unit_percent));
+																		}
 																	}
-																}
-																if (!object.isNull("l6")) {
-																	String rainFall = FyjpWeatherUtil.lastValue(object.getString("l6"));
-																	if (rainFall != null) {
-																		tvRainFall.setText(getString(R.string.rainfall) + rainFall + getString(R.string.mm));
+																	if (!object.isNull("l6")) {
+																		String rainFall = FyjpWeatherUtil.lastValue(object.getString("l6"));
+																		if (rainFall != null) {
+																			tvRainFall.setText(getString(R.string.rainfall) + rainFall + getString(R.string.mm));
+																		}
 																	}
 																}
 
 																JSONObject airObj = content.getAirQualityInfo();//空气质量信息
-																if (!airObj.isNull("k3")) {
-																	String airQua = FyjpWeatherUtil.lastValue(airObj.getString("k3"));
-																	if (airQua != null) {
-																		tvAQI.setText(getString(R.string.aqi) + airQua);
+																if (airObj != null) {
+																	if (!airObj.isNull("k3")) {
+																		String airQua = FyjpWeatherUtil.lastValue(airObj.getString("k3"));
+																		if (airQua != null) {
+																			tvAQI.setText(getString(R.string.aqi) + airQua);
+																		}
 																	}
 																}
 															} catch (JSONException e) {

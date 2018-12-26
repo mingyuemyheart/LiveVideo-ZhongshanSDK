@@ -24,8 +24,8 @@ android {
 //        applicationId "com.hf.live"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1336
-        versionName "1.4.0"
+        versionCode 1337
+        versionName "1.4.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
@@ -51,7 +51,7 @@ android {
 }
 
 //发布GitHub项目到JitPack
-//apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
+apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
 group='com.github.mingyuemyheart'
 
 // build a jar with source files
