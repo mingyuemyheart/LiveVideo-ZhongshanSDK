@@ -104,7 +104,7 @@ public class FyjpWelcomeActivity extends Activity{
 	 * 用户登录
 	 */
 	private void OkHttpLogin(final String userName, final String passWord) {
-		final String url = "http://channellive2.tianqi.cn/weather/user/Login";
+		final String url = "http://channellive2.tianqi.cn/weather/user/Login_zssdk";
 		FormBody.Builder builder = new FormBody.Builder();
 		builder.add("username", userName);
 		builder.add("passwd", passWord);

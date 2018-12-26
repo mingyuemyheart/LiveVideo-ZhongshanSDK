@@ -24,8 +24,8 @@ android {
 //        applicationId "com.hf.live"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1337
-        versionName "1.4.1"
+        versionCode 1338
+        versionName "1.4.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
